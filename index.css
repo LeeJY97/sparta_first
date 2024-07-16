@@ -6,6 +6,7 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: auto;
+  background-color: rgb(255, 248, 239);
 }
 a {
   list-style-type: none;
@@ -47,6 +48,11 @@ a {
   width: 230px;
   height: 100px;
   background-color: rgb(210, 233, 253);
+  text-align: center;
+  line-height: 1.5rem;
+  box-shadow: 3px 3px 3px gray;
+}
+.box1 {
   text-align: center;
   line-height: 100px;
 }
