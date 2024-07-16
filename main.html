@@ -1,226 +1,263 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main</title>
+  </head>
+  <link rel="stylesheet" href="headerFooter.css" />
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="common.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Main</title>
-</head>
-<link rel="stylesheet" href="headerFooter.css" />
-<link rel="stylesheet" href="main.css" />
-<link rel="stylesheet" href="common.css" />
+  <body>
+    <header>
+      <h1>Do it Coding</h1>
+      <nav class="menu">
+        <ul>
+          <li id="category-1">팀 소개</li>
+          <li id="category-2">팀원 소개</li>
+          <li id="category-3">갤러리</li>
+        </ul>
+      </nav>
+    </header>
 
-<body>
-  <header>
-    <h1>Do it Coding</h1>
-    <nav class="menu">
-      <ul>
-        <li>팀 소개</li>
-        <li>팀원 소개</li>
-        <li>갤러리</li>
-      </ul>
-    </nav>
-  </header>
+    <!--팀 소개 영역 시작-->
+    <section class="team-container">
+      <div id="team-desc" class="team-desc">
+        <h2>팀 소개</h2>
 
-  <!--팀 소개 영역 시작-->
-  <section class="team-container">
-    <div class="team-desc">
-      <h2>팀 소개</h2>
+        <div class="team-detail">
+          <img src="./img/8.png" />
 
-      <div class="team-detail">
-        <img src="./img/8.png" />
-
-        <div class="msg-item">
-          <h3>팀 각오</h3>
-          <ul class="mg-20">
-            <li>정민지 : 화이팅!!</li>
-            <li>정민지 : 화이팅!!</li>
-            <li>정민지 : 화이팅!!</li>
-            <li>정민지 : 화이팅!!</li>
-            <li>정민지 : 화이팅!!</li>
-            <li>정민지 : 화이팅!!</li>
-          </ul>
-        </div>
-
-        <div class="msg-item">
-          <h3>팀 약속</h3>
-          <ul class="mg-20">
-            <li>회의 참석하기</li>
-            <li>열심히 하기</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="member-desc">
-      <h2>팀원 소개</h2>
-      <div class="member">
-        <div class="member-card">
-          <a href="/subPage_jm.html" class="member-item">
-            <img src="./img/정민지.png" />
-            <div>최지민</div>
-          </a>
-        </div>
-        <div class="member-card">
-          <a href="./subPage_sh.html" class="member-item">
-            <img src="./img/정민지.png" />
-            <div>정소현</div>
-          </a>
-        </div>
-        <div class="member-card">
-          <a href="/subPage_mj.html" class="member-item">
-            <img src="./img/정민지.png" />
-            <div>정민지</div>
-          </a>
-        </div>
-        <div class="member-card">
-          <a href="#" class="member-item">
-            <img src="./img/정민지.png" />
-            <div>정민지</div>
-          </a>
-        </div>
-        <div class="member-card">
-          <a href="#" class="member-item">
-            <img src="./img/정민지.png" />
-            <div>정민지</div>
-          </a>
-        </div>
-        <div class="member-card">
-          <a href="#" class="member-item">
-            <img src="./img/정민지.png" />
-            <div>정민지</div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--팀 소개 영역 끝-->
-
-  <!--메인페이지 : 갤러리 (임보라)-->
-  <section class="gallery">
-    <h2>갤러리</h2>
-    <div class="gallery-container">
-      <div class="overHidden">
-        <div class="gallery-wrapper">
-          <div class="gallery-item">
-            <ul>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
+          <div class="msg-item">
+            <h3>팀 각오</h3>
+            <ul class="mg-20">
+              <li>정민지 : 화이팅!!</li>
+              <li>정민지 : 화이팅!!</li>
+              <li>정민지 : 화이팅!!</li>
+              <li>정민지 : 화이팅!!</li>
+              <li>정민지 : 화이팅!!</li>
+              <li>정민지 : 화이팅!!</li>
             </ul>
           </div>
-          <div class="gallery-item">
-            <ul>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-            </ul>
-          </div>
-          <div class="gallery-item">
-            <ul>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
-              <li>
-                <img src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png" />
-              </li>
+
+          <div class="msg-item">
+            <h3>팀 약속</h3>
+            <ul class="mg-20">
+              <li>회의 참석하기</li>
+              <li>열심히 하기</li>
             </ul>
           </div>
         </div>
       </div>
-    </div>
 
-    <!--페이지네이션-->
-    <div class="gallery-pagination"></div>
-
-    <!-- 푸터 -->
-    <footer>
-      <h3>코딩배우조</h3>
-      <div class="members">
-        <a href="./subPage_jy.html">
-          <p>이준열</p>
-        </a>
-        <a href="./">
-          <p>이준</p>
-        </a>
-        <a href="./subPage_br.html">
-          <p>임보라</p>
-        </a>
-        <a href="./subPage_jm.html">
-          <p>최지민</p>
-        </a>
-        <a href="./subPage_sh.html">
-          <p>정소현</p>
-        </a>
-        <a href="./subPage_mj.html">
-          <p>정민지</p>
-        </a>
+      <div id="member-desc" class="member-desc">
+        <h2>팀원 소개</h2>
+        <div class="member">
+          <div class="member-card">
+            <a href="/subPage_jm.html" class="member-item">
+              <img src="./img/정민지.png" />
+              <div>최지민</div></a
+            >
+          </div>
+          <div class="member-card">
+            <a href="./subPage_sh.html" class="member-item">
+              <img src="./img/정민지.png" />
+              <div>정소현</div></a
+            >
+          </div>
+          <div class="member-card">
+            <a href="/subPage_mj.html" class="member-item">
+              <img src="./img/정민지.png" />
+              <div>정민지</div></a
+            >
+          </div>
+          <div class="member-card">
+            <a href="#" class="member-item">
+              <img src="./img/정민지.png" />
+              <div>정민지</div></a
+            >
+          </div>
+          <div class="member-card">
+            <a href="#" class="member-item">
+              <img src="./img/정민지.png" />
+              <div>정민지</div></a
+            >
+          </div>
+          <div class="member-card">
+            <a href="#" class="member-item">
+              <img src="./img/정민지.png" />
+              <div>정민지</div></a
+            >
+          </div>
+        </div>
       </div>
-    </footer>
-    <!-- 푸터 -->
-  </section>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const galleryWrapper = document.querySelector(".gallery-wrapper"); //갤러리 랩퍼
-      const galleryItem = document.querySelectorAll(".gallery-item"); //갤러리 아이템
-      const paginationContainer = document.querySelector(".gallery-pagination"); //페이지네이션 부모
+    </section>
+    <!--팀 소개 영역 끝-->
 
-      for (let i = 0; i < galleryItem.length; i++) {
-        //gallery-item 갯수만큼 반복
-        const btn = document.createElement("span");
-        btn.className = "gallery-btn";
+    <!--메인페이지 : 갤러리 (임보라)-->
+    <section id="gallery" class="gallery">
+      <h2>갤러리</h2>
+      <div class="gallery-container">
+        <div class="overHidden">
+          <div class="gallery-wrapper">
+            <div class="gallery-item">
+              <ul>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+              </ul>
+            </div>
+            <div class="gallery-item">
+              <ul>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+              </ul>
+            </div>
+            <div class="gallery-item">
+              <ul>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://blog.kakaocdn.net/dn/KdSob/btqKIqe3s5R/vLiAKWlkf4gAoy9ML0emx1/img.png"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        btn.addEventListener("click", () => {
-          galleryWrapper.style.transition = "transform 2s";
-          galleryWrapper.style.transform = `translateX(-${i * (100 / 3)}%)`;
-        });
+      <!--페이지네이션-->
+      <div class="gallery-pagination"></div>
 
-        paginationContainer.appendChild(btn);
-      }
-    });
-  </script>
-</body>
+      <!-- 푸터 -->
+      <footer>
+        <h3>코딩배우조</h3>
+        <div class="members">
+          <a href="./subPage_jy.html">
+            <p>이준열</p>
+          </a>
+          <a href="./">
+            <p>이준</p>
+          </a>
+          <a href="./subPage_br.html">
+            <p>임보라</p>
+          </a>
+          <a href="./subPage_jm.html">
+            <p>최지민</p>
+          </a>
+          <a href="./subPage_sh.html">
+            <p>정소현</p>
+          </a>
+          <a href="./subPage_mj.html">
+            <p>정민지</p>
+          </a>
+        </div>
+      </footer>
+      <!-- 푸터 -->
+    </section>
+    <script src="team.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const galleryWrapper = document.querySelector(".gallery-wrapper"); //갤러리 랩퍼
+        const galleryItem = document.querySelectorAll(".gallery-item"); //갤러리 아이템
+        const paginationContainer = document.querySelector(
+          ".gallery-pagination"
+        ); //페이지네이션 부모
 
+        for (let i = 0; i < galleryItem.length; i++) {
+          //gallery-item 갯수만큼 반복
+          const btn = document.createElement("span");
+          btn.className = "gallery-btn";
+
+          btn.addEventListener("click", () => {
+            galleryWrapper.style.transition = "transform 2s";
+            galleryWrapper.style.transform = `translateX(-${i * (100 / 3)}%)`;
+          });
+
+          paginationContainer.appendChild(btn);
+        }
+      });
+    </script>
+  </body>
 </html>
