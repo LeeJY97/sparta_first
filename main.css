@@ -5,13 +5,19 @@
 
 .team-desc {
   /* background-color: pink; */
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .team-detail {
-  background-color: gray;
+  background-color: lightgray;
   display: flex;
   justify-content: center;
   padding: 50px;
+  margin-top: 5px;
+  width: 80%;
 }
 
 .team-detail img {
@@ -19,8 +25,8 @@
 }
 
 .team-detail div {
-  width: 20%;
-  background-color: red;
+  width: 25%;
+  background-color: gray;
   margin-left: 10px;
 }
 
@@ -30,6 +36,7 @@
   justify-content: center;
   align-items: center;
   /* background-color: pink; */
+  margin-top: 100px;
 }
 
 .member {
@@ -39,97 +46,108 @@
   grid-template-rows: 300px 300px;
   grid-gap: 50px;
   justify-content: center;
+  margin-top: 5px;
 }
 
-.member div {
-  background-color: gray;
+.member-card {
+  background-color: lightgray;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 
+.member-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.member-item div {
+  margin-top: 50px;
+}
+
 .member img {
-  width: 70%;
+  width: 100%;
   border-radius: 50%;
 }
 
-.member span {
-  font-size: 40px;
+.member div {
+  font-size: 30px;
 }
 /* 팀 소개 CSS 끝 */
 
-
-
 /*폰트*/
 @font-face {
-    font-family: 'S-CoreDream-3Light';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "S-CoreDream-3Light";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /*갤러리*/
-.gallery{
-    width: 100%;
-    margin: 0 auto;
-    background-color: #ddd;
+.gallery {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ddd;
 }
-.gallery h2{
-    font-family: 'S-CoreDream-3Light';
-    text-align: center;
-    font-weight: 300;
-    font-size: 30px;
-    padding: 40px 0;
-    background-color: #fff;
+.gallery h2 {
+  font-family: "S-CoreDream-3Light";
+  text-align: center;
+  font-weight: 300;
+  font-size: 30px;
+  padding: 40px 0;
+  background-color: #fff;
 }
-.gallery-container{
-    max-width: 1350px;
-    margin: 0 auto;
-    background-color: #ddd;
-    width: 100%;
-    height: 800px;
-    display: block;
-    padding: 40px 60px;
+.gallery-container {
+  max-width: 1350px;
+  margin: 0 auto;
+  background-color: #ddd;
+  width: 100%;
+  height: 800px;
+  display: block;
+  padding: 40px 60px;
 }
-.gallery-wrapper{
-    width: 300%;
-    height: 100%;
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
+.gallery-wrapper {
+  width: 300%;
+  height: 100%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
 }
-.overHidden{
-    overflow: hidden;
-    height: 100%;
+.overHidden {
+  overflow: hidden;
+  height: 100%;
 }
 
-.gallery-item{
-    width: 100%;
-    height: 100%;
+.gallery-item {
+  width: 100%;
+  height: 100%;
 }
-.gallery-item ul{
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 10px;
+.gallery-item ul {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
 }
-.gallery-item ul li{
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+.gallery-item ul li {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 .gallery-item ul li img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.gallery-btn{
-  width: 12px;;
+.gallery-btn {
+  width: 12px;
   height: 12px;
   background-color: #fff;
   border-radius: 50%;
