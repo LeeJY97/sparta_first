@@ -88,43 +88,102 @@ a {
 
 /* 방명록 css (임시입니다) */
 /* 방명록 css (임시입니다) */
+#guestbook {
+  background-color: #f9ddb7;
+  padding: 20px 40px;
+}
+
 .guestbook-entries {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 90vw;
+  /* width: 90vw; */
   margin: 20px auto 20px auto;
 }
 
 .guest-book {
+  background-color: rgba(215, 215, 215, 0.606);
+  margin-bottom: 5px;
+  border-radius: 5px;
+  height: 30px;
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
-  border: 1px solid grey;
+  justify-content: space-between;
+  /* border: 1px solid grey; */
 }
 
 #guestbook h2 {
-  margin-bottom: 10px;
+  padding: 10px 0;
 }
 
-#guestbook h2,
 #guest-name {
-  margin-left: 70px;
+  width: 120px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid rgb(112, 105, 105);
+  padding: 2px 6px;
 }
+
+#guest-message {
+  width: 220px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid #706969;
+  padding: 2px 6px;
+}
+
 .guest-name {
-  width: 10%;
-  border: 1px solid grey;
+  background-color: rgb(112, 105, 105);
+  color: white;
+  border-radius: 6px 0 0 6px;
+  width: 23%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* border: 1px solid grey; */
 }
 
 .guest-message {
-  width: 70%;
-  border: 1px solid grey;
+  width: 40%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid grey; */
 }
 
 .date {
   width: 10%;
-  border: 1px solid grey;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid grey; */
 }
+
+#addEntry {
+  width: 45px;
+  height: 24px;
+  padding: 2px;
+  border: none;
+  color: #fff;
+  background: #706969;
+  border-radius: 6px;
+}
+
+.deleteBtn {
+  opacity: 0.7;
+  width: 45px;
+  height: 24px;
+  padding: 2px;
+  border: none;
+  color: #fff;
+  background: #706969;
+  border-radius: 6px;
+}
+
 /* 방명록 css (임시) 끝 */
 
 .beforeButton {
