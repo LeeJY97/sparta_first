@@ -128,10 +128,18 @@
     height: 100%;
     object-fit: cover;
 }
+.gallery-pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 20px;
+    margin-bottom: 20px;
+}
 .gallery-btn{
   width: 12px;;
   height: 12px;
   background-color: #fff;
   border-radius: 50%;
   cursor: pointer;
+  display: block;
 }
