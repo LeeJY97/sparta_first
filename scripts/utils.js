@@ -63,7 +63,9 @@ function createGuestBook(docs, name){
                 <div class="date">
                     <p>${date}</p>
                 </div>
+
                 <button class="deleteBtn" id=${id}>삭제</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">삭제</button>
             </div>`)
 
         $("#guestbook-entries").append(card);
@@ -71,5 +73,26 @@ function createGuestBook(docs, name){
 }
 
 
+// 비밀번호 삭제
+const exampleModal = document.getElementById('exampleModal')
+if (exampleModal) {
+  exampleModal.addEventListener('show.bs.modal', event => {
+
+    console.log(event);
+    // Button that triggered the modal
+    const button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    const recipient = button.getAttribute('data-bs-whatever')
+    // If necessary, you could initiate an Ajax request here
+    // and then do the updating in a callback.
+
+    // Update the modal's content.
+    const modalTitle = exampleModal.querySelector('.modal-title')
+    const modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+    modalTitle.textContent = `New message to ${recipient}`
+    modalBodyInput.value = recipient
+  })
+}
 
 
