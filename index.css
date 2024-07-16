@@ -7,7 +7,7 @@ a {
   list-style-type: none;
   color: inherit;
 }
-h1 {
+h2 {
   width: 300px;
   margin: 40px auto;
   font-weight: 300;
@@ -17,6 +17,8 @@ h1 {
   width: 1000px;
   height: 600px;
   margin: 0 auto;
+}
+.memberIntroduce {
   display: flex;
   flex-direction: row;
   justify-content: center;
