@@ -103,6 +103,14 @@ a {
   border: 1px solid grey;
 }
 
+#guestbook h2 {
+  margin-bottom: 10px;
+}
+
+#guestbook h2,
+#guest-name {
+  margin-left: 70px;
+}
 .guest-name {
   width: 10%;
   border: 1px solid grey;
