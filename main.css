@@ -1,0 +1,41 @@
+.team-container {
+  text-align: center;
+}
+
+.team-desc {
+  background-color: pink;
+}
+
+.member-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+}
+
+.member {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 300px 300px;
+  grid-gap: 50px;
+  justify-content: center;
+}
+
+.member div {
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.member img {
+  width: 70%;
+  border-radius: 50%;
+}
+
+.member span {
+  font-size: 40px;
+}
