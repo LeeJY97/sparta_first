@@ -26,10 +26,12 @@ h2 {
   gap: 100px;
 }
 .image > img {
-  width: 300px;
-  height: 400px;
+  width: 400px;
+  height: 500px;
+  margin-top: 30px;
 }
 .introBox {
+  margin-bottom: 80px;
   width: 300px;
   height: 400px;
   display: grid;
@@ -37,7 +39,8 @@ h2 {
   grid-template-rows: repeat(6, 1fr);
 }
 .box {
-  width: 200px;
+  border-radius: 8px;
+  width: 230px;
   height: 100px;
   background-color: rgb(210, 233, 253);
   text-align: center;
@@ -45,8 +48,9 @@ h2 {
 }
 
 .box5 img {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 4ß0px;
+  margin-right: 5px;
 }
 .box2 {
   grid-column: 2/3;
@@ -63,4 +67,19 @@ h2 {
 .box5 {
   grid-column: 1/2;
   grid-row: 5/6;
+}
+.beforeButton {
+  width: 40px;
+}
+
+.afterButton {
+  margin-left: auto;
+  width: 250px;
+
+  display: flex;
+  flex-direction: row;
+}
+.section {
+  display: flex;
+  flex-direction: row;
 }

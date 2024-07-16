@@ -7,6 +7,7 @@
   </head>
   <link rel="stylesheet" href="headerFooter.css" />
   <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="common.css" />
   <body>
     <header>
       <h1>Do it Coding</h1>
@@ -90,5 +91,25 @@
         <!--페이지네이션-->
         <div class="gallery-pagination"></div>
     </section>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const galleryWrapper = document.querySelector('.gallery-wrapper'); //갤러리 랩퍼
+        const galleryItem = document.querySelectorAll('.gallery-item'); //갤러리 아이템
+        const paginationContainer = document.querySelector('.gallery-pagination'); //페이지네이션 부모
+
+        for (let i = 0; i < galleryItem.length; i++) { //gallery-item 갯수만큼 반복
+          const btn = document.createElement('span'); 
+          btn.className = 'gallery-btn';
+        
+
+          btn.addEventListener('click', ()=>{
+            galleryWrapper.style.transition = 'transform 2s'; 
+            galleryWrapper.style.transform = `translateX(-${i * (100 / 3)}%)`;
+          })
+
+          paginationContainer.appendChild(btn);
+        }
+      });
+    </script>
 </body>
 </html>
