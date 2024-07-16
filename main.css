@@ -58,3 +58,71 @@
   font-size: 40px;
 }
 /* 팀 소개 CSS 끝 */
+
+
+
+/*폰트*/
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*갤러리*/
+.gallery{
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ddd;
+}
+.gallery h2{
+    font-family: 'S-CoreDream-3Light';
+    text-align: center;
+    font-weight: 300;
+    font-size: 30px;
+    padding: 40px 0;
+}
+.gallery-container{
+    max-width: 1350px;
+    margin: 0 auto;
+    background-color: #ddd;
+    width: 100%;
+    height: 800px;
+    display: block;
+    padding: 40px 60px;
+}
+.gallery-wrapper{
+    width: 300%;
+    height: 100%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+.overHidden{
+    overflow: hidden;
+    height: 100%;
+}
+
+.gallery-item{
+    width: 100%;
+    height: 100%;
+}
+.gallery-item ul{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+}
+.gallery-item ul li{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gallery-item ul li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
