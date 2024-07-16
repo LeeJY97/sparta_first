@@ -65,8 +65,10 @@ function createGuestBook(docs, name){
                 </div>
 
                 <button class="deleteBtn" id=${id}>삭제</button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">삭제</button>
+                
             </div>`)
+
+            // <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">삭제</button>
 
         $("#guestbook-entries").append(card);
     });

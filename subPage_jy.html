@@ -90,7 +90,6 @@
     $(document).on("click", ".deleteBtn", async function () {
         // 클릭된 버튼의 id 값
         const id = $(this).attr("id");
-
         await deleteDoc(doc(db, "guest_book", id));
 
         cardClear();
