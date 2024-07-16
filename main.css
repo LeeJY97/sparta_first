@@ -1,9 +1,27 @@
+/* 팀 소개 CSS 시작 */
 .team-container {
   text-align: center;
 }
 
 .team-desc {
-  background-color: pink;
+  /* background-color: pink; */
+}
+
+.team-detail {
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.team-detail img {
+  width: 40%;
+}
+
+.team-detail div {
+  width: 20%;
+  background-color: red;
+  margin-left: 10px;
 }
 
 .member-desc {
@@ -11,7 +29,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: pink;
+  /* background-color: pink; */
 }
 
 .member {
@@ -24,7 +42,7 @@
 }
 
 .member div {
-  background-color: green;
+  background-color: gray;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -39,3 +57,4 @@
 .member span {
   font-size: 40px;
 }
+/* 팀 소개 CSS 끝 */
