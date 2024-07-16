@@ -105,10 +105,18 @@
             console.log(id)
 
             let card = $(`
-                <div class="card">
-                    <span class="guest-name">${guest_name}</span>
-                    <span class="guest-message">${guest_message}</span>
-                    <span class="date">${date}</span>
+                <div class="guest-book">
+                    <div class="guest-name">
+                        <p>이름</p>
+                        <p>${guest_name}</p>
+                    </div>
+                    <div class="guest-message">
+                        <p>내용</p>
+                        <p>${guest_message}</p> 
+                    </div>
+                    <div class="date">
+                        <p>${date}</p>
+                    </div>
                     <button class="deleteBtn" id=${id}>삭제</button>
                 </div>`)
 
@@ -195,7 +203,7 @@
         <input type="text" id="guest-message" placeholder="Message">
         <!-- <button onclick="addEntry()">등록</button> -->
          <button id="addEntry">등록</button>
-        <div id="guestbook-entries">
+        <div class="guestbook-entries" id="guestbook-entries">
             <!-- Guestbook entries will be added here -->
         </div>
     </div>

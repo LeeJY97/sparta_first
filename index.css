@@ -64,3 +64,34 @@ h2 {
   grid-column: 1/2;
   grid-row: 5/6;
 }
+
+/* 방명록 css (임시입니다) */
+.guestbook-entries {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90vw;
+  margin: 20px auto 20px auto;
+}
+
+.guest-book {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  border: 1px solid grey;
+}
+
+.guest-name {
+  width: 10%;
+  border: 1px solid grey;
+}
+
+.guest-message {
+  width: 70%;
+  border: 1px solid grey;
+}
+
+.date {
+  width: 10%;
+  border: 1px solid grey;
+}
