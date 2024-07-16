@@ -20,6 +20,18 @@
   width: 80%;
 }
 
+.msg-item {
+  padding: 10px;
+}
+
+.mg-20 {
+  margin-top: 20px;
+}
+
+.msg-item ul {
+  list-style-type: none;
+}
+
 .team-detail img {
   width: 40%;
 }
