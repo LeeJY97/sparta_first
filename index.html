@@ -176,7 +176,7 @@
           <p>INTRODUCE MYSELF, MBTI</p>
         </div>
         <div class="box box3">
-          <p>객관적으로 살펴본 자신의 장점</p>
+          <p>객관적으로 살펴본 자신의 장점 \</p>
         </div>
         <div class="box box4">
           <p>자신의 스타일, 협업스타일 소개</p>
@@ -202,8 +202,8 @@
         width="50px" height="50px" />
     </div>
     <div class="afterButton">
-      <p>want to know other member</p>
-      <img
+      <p id="show">want to know other member</p>
+      <img id="after"
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKxJREFUSEvt1LEKg0AMxvG/byG+WhdxaHEouIoP4eZiu+iDtgQURE4vOcymc/x+Jhcvw/nJnPO5geiEtSNqgQJ4RxN3BRqgB5rlvRF4WhANMAD1JtSEaADJTka0gCBfoLJ2YgGk9hNAXsDv6FwsgGRI/Qw8NoETUB4hKcC+i8uA0IhOw9eWtWsdOuTT+VsA1zVNDtd24H5VyId0QO512WmXIFhn/Q/M2A1ER/YHwc0fGYJeKaMAAAAASUVORK5CYII="
         width="50px" height="50px" />
     </div>
@@ -243,7 +243,17 @@
       </a>
     </div>
   </footer>
+  <script>
+    $("#after").hover(function () {
+      $("#show").css("opacity", "1");
+    },
+      function () {
+        $("#show").css("opacity", "0");
+      }
+    )
 
+
+  </script>
   <script src="script.js"></script>
 </body>
 
