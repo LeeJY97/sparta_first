@@ -63,11 +63,38 @@ function createGuestBook(docs, name){
                 <div class="date">
                     <p>${date}</p>
                 </div>
-                <button class="deleteBtn" id=${id}>삭제</button>
+                
+                <button type="button" class="btn btn-primary deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal" data-bs-whatever="@mdo">삭제</button>
+                
             </div>`)
-
+            // <button class="deleteBtn" id=${id}>삭제</button>
             // <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">삭제</button>
 
         $("#guestbook-entries").append(card);
     });
 }
+
+// 비빌번호 유효성 검사 (미완)
+function checkPassword(inputPw, docs, fieldId){
+
+    console.log("1" + fieldId);
+
+    for(const doc in docs){
+        // let row = doc.data();
+        console.log("2")
+        console.log("field: " + fieldId)
+        console.log("rowId: " + row.id);
+        if (fieldId == row.id) {
+            if (inputPw == row.pw) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+
+}
+
+
+
+
