@@ -1,4 +1,103 @@
- // firebase module 제외 js코드
+   // Firebase SDK 라이브러리 가져오기
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+   import {
+       getFirestore,
+       doc,
+       getDocs,
+       collection,
+       addDoc,
+       updateDoc,
+       deleteDoc,
+       deleteField,
+       query,
+       startAt,
+       orderBy,
+       limit,
+   } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+   // Firebase 구성 정보 설정
+   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+   const firebaseConfig = {
+       apiKey: "AIzaSyD0oERzI0jnFGWaAR8NaYPkGqGYft-NOfs",
+       authDomain: "sparta-test-71931.firebaseapp.com",
+       projectId: "sparta-test-71931",
+       storageBucket: "sparta-test-71931.appspot.com",
+       messagingSenderId: "557999158224",
+       appId: "1:557999158224:web:799f97b40ab8e897293fd5",
+       measurementId: "G-1QGVSEZ52D",
+   };
+
+   // Firebase 인스턴스 초기화
+   const app = initializeApp(firebaseConfig);
+   const db = getFirestore(app);
+
+   const name = $('#myName').val();
+//    const name = '이준열'
+
+   let fieldId;
+   let pw;
+
+   // 페이지 로딩 후 db 가져옴
+   $(window).load(async () => {
+       loadGuestBook();
+   });
+
+
+   // 방명록 저장
+   $("#addEntry").click(async function () {
+       let guest_name = $("#guest-name").val();
+       let guest_pw = $("#guest-pw").val();
+       let guest_message = $("#guest-message").val();
+       let date = getDate();
+
+
+       if (validInputs()) {
+           // await addDoc(collection(db, "guest_book"),doc);
+           await addDoc(collection(db, "guest_book"), {
+               name: name,
+               guest_name: guest_name,
+               guest_pw: guest_pw,
+               guest_message: guest_message,
+               date: date,
+           });
+
+           inputClear();
+           cardClear();
+           loadGuestBook();
+       }
+   });
+
+   // db 불러오기
+   async function loadGuestBook() {
+       let docs = await getDocs(
+           query(collection(db, "guest_book"), orderBy("date", "desc"))
+       );
+
+       createGuestBook(docs, name);
+   }
+
+
+   /************ 방명록 삭제 ******************/
+   $(document).on("click", ".deleteBtn", async function () {
+       fieldId = $(this).attr("id");
+   });
+
+   $('#validPassword').click(async function () {
+       const inputPw = $('#inputPw').val();
+       let docs = await getDocs(collection(db, "guest_book"), doc);
+
+       if (checkPassword(inputPw, docs, fieldId)) {
+           await deleteDoc(doc(db, "guest_book", fieldId));
+           cardClear();
+           loadGuestBook();
+           closeModal();
+           window.alert('지워짐')
+           // $('#passwordModal').modal('hide');
+       } else {
+           closeModal();
+           window.alert('틀림')
+       }
+   })
  
  // 날짜 저장 yyyy.mm.dd HH:mm:ss
  function getDate() {
@@ -106,9 +205,6 @@ function closeModal(){
     $('#passwordModal').modal('hide');
     $("#inputPw").val("");
     $("#inputPw").text("");
-
-    debugger;
-
 }
 
 function validInputs(){
