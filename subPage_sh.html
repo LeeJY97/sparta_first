@@ -8,7 +8,6 @@
   <title>subPage</title>
 </head>
 <link rel="stylesheet" href="index.css" />
-<link rel="stylesheet" href="headerFooter.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playwrite+HR:wght@100..400&display=swap" rel="stylesheet" />
@@ -123,16 +122,7 @@
 </script>
 
 <body>
-  <header>
-    <h1>Do it Coding</h1>
-    <nav class="menu">
-      <ul>
-        <li>팀 소개</li>
-        <li>팀원 소개</li>
-        <li>갤러리</li>
-      </ul>
-    </nav>
-  </header>
+  <div id="header"></div>
 
   <div class="header">
     <h2>INTRODUCE OUR TEAM</h2>
@@ -193,53 +183,30 @@
 
 
 
-  <footer>
-    <h3>코딩배우조</h3>
-    <div class="members">
-      <a href="./subPage_jy.html">
-        <p>이준열</p>
-      </a>
-      <a href="./subPage_jl copy.html">
-        <p>이준</p>
-      </a>
-      <a href="./subPage_br.html">
-        <p>임보라</p>
-      </a>
-      <a href="./subPage_jm.html">
-        <p>최지민</p>
-      </a>
-      <a href="./subPage_sh.html">
-        <p>정소현</p>
-      </a>
-      <a href="./subPage_mj.html">
-        <p>정민지</p>
-      </a>
+  <div id="footer"></div>
+  <!-- 비밀번호 모달 -->
+  <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-2" id="exampleModalLabel">비밀번호</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Recipient:</label>
+              <input type="password" class="form-control" id="inputPw" maxlength="4">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeModal()">닫기</button>
+          <button type="button" class="btn btn-primary" id="validPassword">확인</button>
+        </div>
+      </div>
     </div>
-  </footer>
- <!-- 비밀번호 모달 -->
- <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;"
- aria-hidden="true">
- <div class="modal-dialog">
-     <div class="modal-content">
-         <div class="modal-header">
-             <h1 class="modal-title fs-2" id="exampleModalLabel">비밀번호</h1>
-             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <div class="modal-body">
-             <form>
-                 <div class="mb-3">
-                     <label for="recipient-name" class="col-form-label">Recipient:</label>
-                     <input type="password" class="form-control" id="inputPw" maxlength="4">
-                 </div>
-         </div>
-         <div class="modal-footer">
-             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                 onclick="closeModal()">닫기</button>
-             <button type="button" class="btn btn-primary" id="validPassword">확인</button>
-         </div>
-     </div>
- </div>
-</div>
+  </div>
   <script>
     $("#after").hover(function () {
       $("#show").css("opacity", "1");
@@ -252,6 +219,7 @@
 
   </script>
   <!-- <script src="script.js"></script> -->
+  <script src="/sparta_first/headerFooter.js"></script>
 </body>
 
 </html>
