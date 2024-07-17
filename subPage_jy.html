@@ -159,8 +159,15 @@
     </div>
     <div class="section">
         <div class="beforeButton">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAALxJREFUSEvt0jGKAlEQRdHjIgTNR3ENIswuBGPB7Yix4F5UcA+TmAuzCC2wQQys/9UGAzv9zb1Vr15Hy1+nZb6vIE34IyPqYYZlOj7VRw74DgMssM4kNREFfI8fHDHG6V2CLg5X+B9+S+AhL9kg4BHL6JJ9wCf4zyZv3jPBS/CSDVoXxBAvSbKImijvj1x8h1JBiG5rWtykGkEj2WKIOTZZm2oFwetjilUGL2lRCePhP89sUCX9CtK4Wo/oDIwQHhmOKR7aAAAAAElFTkSuQmCC"
-                width="50px" height="50px" />
+            <a href="subPage_jm.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
+                    <path
+                        d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z">
+                    </path>
+                </svg>
+            </a>
+
         </div>
         <div class="afterButton">
             <p id="show">want to know other member</p>
@@ -217,14 +224,15 @@
     </div>
 
     <script>
-        $("#after").hover(function () {
-            $("#show").css("opacity", "1");
-        },
-            function () {
-                $("#show").css("opacity", "0");
-            }
-        )
-
+        $(document).ready(function () {
+            $("#after").hover(function () {
+                $(".showP").addClass("hoverEffect");
+            }, function () {
+                $(function () {
+                    $(".showP").removeClass("hoverEffect");
+                })
+            })
+        })
     </script>
     <!-- <script src="script.js"></script> -->
     <script src="headerFooter.js"></script>

@@ -32,9 +32,9 @@ a {
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   gap: 100px;
-  margin-left: 200px;
 }
 
 .image>img {
@@ -45,7 +45,7 @@ a {
 
 .introBox {
   margin-bottom: 80px;
-  width: 300px;
+  width: 700px;
   height: 400px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -299,4 +299,12 @@ span.show-date{
 .afterButton {
   display: flex;
   cursor: grab;
+}
+
+/* want to see other member */
+.showP {
+  opacity: 0;
+}
+.hoverEffect {
+  opacity: 1;
 }
