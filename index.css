@@ -108,7 +108,12 @@ a {
 /************************ 방명록 css ************************/
 /* #guestbook {
   padding: 20px 40px;
+<<<<<<< HEAD
 } */
+=======
+  border-top: 1px solid #706969;
+}
+>>>>>>> 1bf014353d6736400974c1a92ded6e93f847c139
 
 /************  방명록 등록 부분 ************/
 /* 전체 <div> */
@@ -146,6 +151,8 @@ a {
 /* 방명록 코멘트 <textarea> */
 /* .input-message {
   width: 100%;
+.input-message {
+  width: 21.4%;
   height: 125px;
   resize: none;
   color: black;
