@@ -129,7 +129,7 @@
   padding: 40px 60px;
 }
 .gallery-wrapper {
-  width: 300%;
+  width: 600%;
   height: 100%;
   display: flex;
   /* justify-content: center; */
@@ -178,4 +178,9 @@
   border-radius: 50%;
   cursor: pointer;
   display: block;
+}
+
+.gallery-btn.active {
+  background-color: #e0ec83;
+  transform: scale(1.3);
 }
