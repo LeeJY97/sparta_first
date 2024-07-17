@@ -13,6 +13,7 @@
     ).slice(-2)}`;
 }
 
+
 // 날짜 불러오기 yyyy.mm.dd
 function formatDate(date) {
     const datetime = new Date(date);
@@ -27,7 +28,7 @@ function formatDate(date) {
 // input 비우기
 function inputClear() {
     $("#guest-name").val("");
-    $("#pw").val("");
+    $("#guest-pw").val("");
     $("#guest-message").val("");
 }
 
@@ -74,27 +75,46 @@ function createGuestBook(docs, name){
     });
 }
 
-// 비빌번호 유효성 검사 (미완)
+// 비빌번호 유효성 검사 
 function checkPassword(inputPw, docs, fieldId){
 
-    console.log("1" + fieldId);
+    let isValidPassword = false;
+    let row;
+    
+    docs.forEach((doc) => {
 
-    for(const doc in docs){
-        // let row = doc.data();
-        console.log("2")
-        console.log("field: " + fieldId)
-        console.log("rowId: " + row.id);
-        if (fieldId == row.id) {
-            if (inputPw == row.pw) {
-                return true;
-            }else{
-                return false;
-            }
+        if(doc.id === fieldId){
+            row = doc.data();
         }
-    }
+        // row = doc.data();
 
+        // if(isValidPassword){
+        //     return;
+        // }
+
+        // if(doc.id === fieldId){
+        //     if(row.pw == guest_pw){
+        //         isValidPassword = true;
+        //     }
+        // }
+    })
+
+    debugger;
+
+    if(row.guest_pw == inputPw){
+        return true;
+    }
+    return false;
+
+
+    // return isValidPassword;
 }
 
+// 비밀번호 모달 닫기
+function closeModal(){
+    $('#passwordModal').modal('hide');
+    $("#inputPw").val("");
 
+}
 
 

@@ -132,6 +132,14 @@ a {
   padding: 2px 6px;
 }
 
+#guest-pw {
+  width: 220px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid #706969;
+  padding: 2px 6px;
+}
+
 .guest-name {
   background-color: rgb(112, 105, 105);
   color: white;

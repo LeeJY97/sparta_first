@@ -13,6 +13,7 @@
     ).slice(-2)}`;
 }
 
+
 // 날짜 불러오기 yyyy.mm.dd
 function formatDate(date) {
     const datetime = new Date(date);
@@ -27,7 +28,7 @@ function formatDate(date) {
 // input 비우기
 function inputClear() {
     $("#guest-name").val("");
-    $("#pw").val("");
+    $("#guest-pw").val("");
     $("#guest-message").val("");
 }
 
@@ -63,11 +64,37 @@ function createGuestBook(docs, name){
                 <div class="date">
                     <p>${date}</p>
                 </div>
-                <button class="deleteBtn" id=${id}>삭제</button>
+                
+                <button type="button" class="btn btn-primary deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal" data-bs-whatever="@mdo">삭제</button>
+                
             </div>`)
-
-            // <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">삭제</button>
 
         $("#guestbook-entries").append(card);
     });
 }
+
+// 비빌번호 유효성 검사 
+function checkPassword(inputPw, docs, fieldId){
+    let row;
+    
+    docs.forEach((doc) => {
+
+        if(doc.id === fieldId){
+            row = doc.data();
+        }
+    })
+
+    if(row.guest_pw == inputPw){
+        return true;
+    }
+    return false;
+}
+
+// 비밀번호 모달 닫기
+function closeModal(){
+    $('#passwordModal').modal('hide');
+    $("#inputPw").val("");
+
+}
+
+
