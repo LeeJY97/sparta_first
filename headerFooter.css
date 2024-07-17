@@ -11,7 +11,7 @@ h1 {
   font-weight: 500;
   font-family: "Playwrite HR", cursive;
   font-optical-sizing: auto;
-
+  color: black;
   font-style: normal;
   text-align: center;
 }
@@ -20,15 +20,15 @@ h1 {
 }
 .menu ul {
   display: flex;
-  display: flex;
   flex-direction: row;
   list-style-type: none;
   justify-content: space-around;
 }
-.menu li {
+.menu a {
   width: 33.3%;
   text-align: center;
   border-right: 1px solid black;
+  color: black;
   line-height: 30px;
 }
 .menu li:last-child {
