@@ -1,60 +1,73 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  a {
-    list-style-type: none;
-    color: inherit;
-  }
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  list-style-type: none;
+  color: inherit;
+}
 
-  /*폰트*/
-  @font-face {
-    font-family: 'SCoreDream-light';
-    font-weight: 300;
-    font-style: normal;
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamLight.eot');
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamLight.eot?#iefix') format('embedded-opentype'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamLight.woff2') format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamLight.woff') format('woff'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamLight.ttf') format("truetype");
-    font-display: swap;
+/*폰트*/
+@font-face {
+  font-family: "SCoreDream-light";
+  font-weight: 300;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamLight.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamLight.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamLight.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamLight.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamLight.ttf")
+      format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'SCoreDream-normal';
-    font-weight: 500;
-    font-style: normal;
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamMedium.eot');
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamMedium.eot?#iefix') format('embedded-opentype'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamMedium.woff2') format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamMedium.woff') format('woff'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamMedium.ttf') format("truetype");
-    font-display: swap;
+  font-family: "SCoreDream-normal";
+  font-weight: 500;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamMedium.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamMedium.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamMedium.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamMedium.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamMedium.ttf")
+      format("truetype");
+  font-display: swap;
 }
 @font-face {
-    font-family: 'SCoreDream-bold';
-    font-weight: 600;
-    font-style: normal;
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamBold.eot');
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamBold.eot?#iefix') format('embedded-opentype'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamBold.woff2') format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamBold.woff') format('woff'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamBold.ttf') format("truetype");
-    font-display: swap;
+  font-family: "SCoreDream-bold";
+  font-weight: 600;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamBold.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamBold.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamBold.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamBold.ttf")
+      format("truetype");
+  font-display: swap;
 }
-.containerWidth{
-    max-width: 1920px;
-    margin: 0 auto;
+.containerWidth {
+  max-width: 1920px;
+  margin: 0 auto;
 }
-.titleCm{ /*공통타이틀*/
-    font-family: 'SCoreDream-normal';
-    font-size: 38px;
-    display: block;
-    padding: 20px 0;
-    text-align: left;
-    border-bottom: 1px solid #000;
+.titleCm {
+  /*공통타이틀*/
+  font-family: "SCoreDream-normal";
+  font-size: 38px;
+  display: block;
+  padding: 20px 0;
+  text-align: left;
+  border-bottom: 1px solid #000;
 }
-h3{
-    font-family: 'SCoreDream-normal';
+h3 {
+  font-family: "SCoreDream-normal";
 }
