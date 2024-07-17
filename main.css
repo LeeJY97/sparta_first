@@ -24,19 +24,33 @@
   padding: 10px;
 }
 
+.msg-item img {
+  width: 100px;
+}
+
 .mg-20 {
   margin-top: 20px;
 }
 
 .msg-item ul {
   list-style-type: none;
+  /* text-align: left; */
+}
+
+.msg-item li {
+  margin-bottom: 15px;
 }
 
 .team-detail img {
   width: 40%;
 }
 
-.team-detail div {
+.msg-item span {
+  font-weight: 900;
+}
+
+/* 변경 */
+.msg-item {
   width: 25%;
   background-color: gray;
   margin-left: 10px;
