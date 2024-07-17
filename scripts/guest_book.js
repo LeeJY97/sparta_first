@@ -91,12 +91,27 @@ function createGuestBook(docs, name) {
             <div class="show-container">
                 <div class="show-name-container">
                     <span class="show-name">${guest_name}</span>
-                    <button class="deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal"id=${id}>삭제</button>
+                    <span class="show-guest-massage">${guest_message}</span> 
+                    <span class="show-date">${date}</span>
                 </div>
-                <span class="show-guest-massage">${guest_message}</span> 
-                <span class="show-date">${date}</span>
+                <div class="show-button-container">
+                    <button class="deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">삭제</button>
+                    <button class="replyBtn" id="${id}">답글</button>
+                </div>
             </div>
             `)
+
+        // let card = $(`
+        //     <hr>
+        //     <div class="show-container">
+        //         <div class="show-name-container">
+        //             <span class="show-name">${guest_name}</span>
+        //             <button class="deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal"id=${id}>삭제</button>
+        //         </div>
+        //         <span class="show-guest-massage">${guest_message}</span> 
+        //         <span class="show-date">${date}</span>
+        //     </div>
+        //     `)
         $("#guestbook-entries").append(card);
     });
     $("#guestbook-entries").append($(`<hr>`))
@@ -124,6 +139,18 @@ $('#validPassword').click(async function () {
         window.alert('틀림')
     }
 })
+
+// 답글 버튼
+$(document).on("click", ".replyBtn", async function () {
+    const parentId = $(this).attr("id");
+
+    console.log(parentId);
+
+    
+
+
+});
+
 
 // 날짜 저장 yyyy.mm.dd HH:mm:ss
 function getDate() {
