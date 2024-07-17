@@ -16,10 +16,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Playwrite+HR:wght@100..400&display=swap" rel="stylesheet" />
 
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="./scripts/utils copy.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-<script type="text/javascript" src="./scripts/utils.js"></script>
+<!-- <script type="text/javascript" src="./scripts/utils.js"></script> -->
 <script type="module">
     // Firebase SDK 라이브러리 가져오기
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
@@ -33,6 +34,7 @@
         deleteDoc,
         deleteField,
         query,
+        startAt,
         orderBy,
         limit,
     } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
@@ -54,6 +56,9 @@
     const db = getFirestore(app);
 
     const name = $('#name').text();
+    
+    let fieldId;
+    let pw;
 
     // 페이지 로딩 후 db 가져옴
     $(window).load(async () => {
@@ -91,15 +96,40 @@
         createGuestBook(docs, name);
     }
 
-    // db 삭제
-    $(document).on("click", ".deleteBtn", async function () {
-        // 클릭된 버튼의 id 값
-        const id = $(this).attr("id");
-        // await deleteDoc(doc(db, "guest_book", id));
+    // db 삭제 (bootstrap X 이전버전 O)
+    // $(document).on("click", ".deleteBtn", async function () {
+    //     // 클릭된 버튼의 id 값
+    //     fieldId = $(this).attr("id");
+    //     await deleteDoc(doc(db, "guest_book", fieldId));
 
-        cardClear();
-        loadGuestBook();
+    //     cardClear();
+    //     loadGuestBook();
+    // });
+
+    $(document).on("click", ".deleteBtn", async function () {
+        fieldId = $(this).attr("id");
     });
+
+    // 1. 삭제버튼 클릭
+    // 2. 모달 열림
+    // 3. 입력 후 확인
+    // 4. db에서 데이터 가져옴 
+    // 5. button의 id값을 반복해서 돌면서 찾음
+    // 6. 해당 id의 pw와 inputPW를 비교해서 맞으면 삭제
+    // 문제점: bootstrap으로 하니까 id값이 좀 이상하게 가져와지는데..  
+    $('#confirmPw').click(async function(){
+            const inputPw = $('#inputPw').val();
+            let docs = await getDocs(collection(db, "guest_book"), doc);
+
+            console.log(fieldId);
+
+            if(checkPassword(inputPw, docs, fieldId)){
+                window.alert('지워짐')
+                $('#passwordModal').modal('hide');
+            }else{
+                window.alert('틀림')
+            }
+        })
 </script>
 
 <body>
@@ -193,27 +223,25 @@
         </div>
     </footer>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;"
-        aria-hidden="true">
+    <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-2" id="exampleModalLabel">Password</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-                    <button type="button" class="btn btn-primary">확인</button>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-2" id="exampleModalLabel">비밀번호</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Recipient:</label>
+                  <input type="password" class="form-control" id="inputPw" maxlength="4">
                 </div>
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+              <button type="button" class="btn btn-primary" id="confirmPw">확인</button>
+            </div>
+          </div>
         </div>
     </div>
 
