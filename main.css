@@ -49,7 +49,6 @@
   font-weight: 900;
 }
 
-/* 변경 */
 .msg-item {
   width: 25%;
   background-color: gray;
@@ -102,7 +101,7 @@
 
 .member img {
   width: 100%;
-  /* border-radius: 50%; */
+  border-radius: 50%;
 }
 
 .member div {
