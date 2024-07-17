@@ -16,85 +16,85 @@
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="./scripts/utils.js"></script>
 <script type="module">
-    // Firebase SDK 라이브러리 가져오기
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-    import {
-        getFirestore,
-        doc,
-        getDocs,
-        collection,
-        addDoc,
-        updateDoc,
-        deleteDoc,
-        deleteField,
-        query,
-        orderBy,
-        limit,
-    } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+  // Firebase SDK 라이브러리 가져오기
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+  import {
+    getFirestore,
+    doc,
+    getDocs,
+    collection,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    deleteField,
+    query,
+    orderBy,
+    limit,
+  } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-    // Firebase 구성 정보 설정
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-        apiKey: "AIzaSyD0oERzI0jnFGWaAR8NaYPkGqGYft-NOfs",
-        authDomain: "sparta-test-71931.firebaseapp.com",
-        projectId: "sparta-test-71931",
-        storageBucket: "sparta-test-71931.appspot.com",
-        messagingSenderId: "557999158224",
-        appId: "1:557999158224:web:799f97b40ab8e897293fd5",
-        measurementId: "G-1QGVSEZ52D",
-    };
+  // Firebase 구성 정보 설정
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyD0oERzI0jnFGWaAR8NaYPkGqGYft-NOfs",
+    authDomain: "sparta-test-71931.firebaseapp.com",
+    projectId: "sparta-test-71931",
+    storageBucket: "sparta-test-71931.appspot.com",
+    messagingSenderId: "557999158224",
+    appId: "1:557999158224:web:799f97b40ab8e897293fd5",
+    measurementId: "G-1QGVSEZ52D",
+  };
 
-    // Firebase 인스턴스 초기화
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+  // Firebase 인스턴스 초기화
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-    const name = "임보라"
+  const name = "임보라"
 
-    // 페이지 로딩 후 db 가져옴
-    $(window).load(async () => {
-        loadGuestBook();
+  // 페이지 로딩 후 db 가져옴
+  $(window).load(async () => {
+    loadGuestBook();
+  });
+
+
+  // 방명록 저장
+  $("#addEntry").click(async function () {
+    let guest_name = $("#guest-name").val();
+    let pw = $("#pw").val();
+    let guest_message = $("#guest-message").val();
+    let date = getDate();
+
+    // await addDoc(collection(db, "guest_book"),doc);
+    await addDoc(collection(db, "guest_book"), {
+      name: name,
+      guest_name: guest_name,
+      pw: "",
+      guest_message: guest_message,
+      date: date,
     });
 
+    inputClear();
+    cardClear();
+    loadGuestBook();
+  });
 
-    // 방명록 저장
-    $("#addEntry").click(async function () {
-        let guest_name = $("#guest-name").val();
-        let pw = $("#pw").val();
-        let guest_message = $("#guest-message").val();
-        let date = getDate();
+  // db 불러오기
+  async function loadGuestBook() {
+    let docs = await getDocs(
+      query(collection(db, "guest_book"), orderBy("date", "desc"))
+    );
 
-        // await addDoc(collection(db, "guest_book"),doc);
-        await addDoc(collection(db, "guest_book"), {
-            name: name,
-            guest_name: guest_name,
-            pw: "",
-            guest_message: guest_message,
-            date: date,
-        });
+    createGuestBook(docs, name);
+  }
 
-        inputClear();
-        cardClear();
-        loadGuestBook();
-    });
+  // db 삭제
+  $(document).on("click", ".deleteBtn", async function () {
+    // 클릭된 버튼의 id 값
+    const id = $(this).attr("id");
+    await deleteDoc(doc(db, "guest_book", id));
 
-    // db 불러오기
-    async function loadGuestBook() {
-        let docs = await getDocs(
-            query(collection(db, "guest_book"), orderBy("date", "desc"))
-        );
-
-        createGuestBook(docs, name);
-    }
-
-    // db 삭제
-    $(document).on("click", ".deleteBtn", async function () {
-        // 클릭된 버튼의 id 값
-        const id = $(this).attr("id");
-        await deleteDoc(doc(db, "guest_book", id));
-
-        cardClear();
-        loadGuestBook();
-    });
+    cardClear();
+    loadGuestBook();
+  });
 </script>
 
 <body>
@@ -120,16 +120,16 @@
           <p>MY NAME : 임보라</p>
         </div>
         <div class="box box2">
-          <p>안녕하세요!<br />제 MBTI는 ISFJ입니다.<br/>취미는 운동 좋아하고<br/>고양이를 키우고 있는 집순이입니다:)<br/></p>
+          <p>안녕하세요!<br />제 MBTI는 ISFJ입니다.<br />취미는 운동 좋아하고<br />고양이를 키우고 있는 집순이입니다:)<br /></p>
         </div>
         <div class="box box3">
-            <p>이전에 웹퍼블리셔로 3년 근무하고<br/>프론트엔드로 전향하기 위해 참여하게되었습니다.<br/>
-                조금 느리더라도 잘부탁드립니다.
-            </p>
+          <p>이전에 웹퍼블리셔로 3년 근무하고<br />프론트엔드로 전향하기 위해 참여하게되었습니다.<br />
+            조금 느리더라도 잘부탁드립니다.
+          </p>
         </div>
         <div class="box box4">
-            <p>“사람마다 계절이 있다.”<br/>
-                사람마다 각자의 속도가 있으니<br/>꾸준히만 하면 어제보다 좀 더 나은<br/>내가 되기 위해 노력하겠습니다!</p>
+          <p>“사람마다 계절이 있다.”<br />
+            사람마다 각자의 속도가 있으니<br />꾸준히만 하면 어제보다 좀 더 나은<br />내가 되기 위해 노력하겠습니다!</p>
         </div>
         <div class="box box5">
           <p>LINK</p>
@@ -171,22 +171,22 @@
   <footer>
     <h3>코딩배우조</h3>
     <div class="members">
-      <a href="#">
+      <a href="./subPage_jy.html">
         <p>이준열</p>
       </a>
-      <a href="#">
+      <a href="./subPage_jl copy.html">
         <p>이준</p>
       </a>
-      <a href="#">
+      <a href="./subPage_br.html">
         <p>임보라</p>
       </a>
-      <a href="#">
+      <a href="./subPage_jm.html">
         <p>최지민</p>
       </a>
-      <a href="#">
+      <a href="./subPage_sh.html">
         <p>정소현</p>
       </a>
-      <a href="#">
+      <a href="./subPage_mj.html">
         <p>정민지</p>
       </a>
     </div>
