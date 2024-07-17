@@ -106,28 +106,27 @@ a {
 }
 
 /************************ 방명록 css ************************/
-#guestbook {
-  /* background-color: #f9ddb7; */
+/* #guestbook {
   padding: 20px 40px;
-}
+} */
 
 /************  방명록 등록 부분 ************/
 /* 전체 <div> */
-.input-container {
+/* .input-container {
   display: flex;
   flex-direction: column;
-}
+} */
 
 /* 이름, 비밀번호 <div> */
-.input-name-pw-container {
+/* .input-name-pw-container {
   display: flex;
   width: 20%;
   flex-direction: row;
   justify-content: space-around;
-}
+} */
 
 /* 이름, 비밀번호 <input> */
-.input-name,
+/* .input-name,
 .input-pw {
   width: 100%;
   height: 45%;
@@ -135,34 +134,33 @@ a {
   border: 1px solid #706969;
   padding: 2px 6px;
   margin-right: 10px;
-}
+} */
 
 /* 방명록 코멘트 <div> */
-.input-message-container {
+/* .input-message-container {
   width: 90%;
   height: 100%;
   margin: 10px 10px 0px 0px;
-}
+} */
 
 /* 방명록 코멘트 <textarea> */
-.input-message {
+/* .input-message {
   width: 100%;
   height: 125px;
-  /* background-color: #8b8b8b1c; */
   resize: none;
   color: black;
   border: none;
   outline: none;
-}
+} */
 
 /* 등록 버튼 <div> */
-.input-submit-container {
+/* .input-submit-container {
   display: flex;
   width: 5%;
-}
+} */
 
 /* 등록 버튼 <button> */
-#addEntry {
+/* #addEntry {
   width: 45px;
   height: 24px;
   border: none;
@@ -170,44 +168,43 @@ a {
   background: #706969;
   border-radius: 6px;
   margin-right: 10px;
-}
+} */
 
 /************ 방명록 보여지는 부분 ************/
 
+
 /* 방명록 전체 <div> */
-.show-container {
-  /* background-color: rgba(215, 215, 215, 0.606); */
+/* .show-container {
   margin-bottom: 5px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
+} */
 
 /* 방명록 이름, 삭제 버튼 <div> */
-.show-name-container {
+/* .show-name-container {
   font-weight: bold;
   margin: 10px 10px 5px 10px;
   display: flex;
   justify-content: space-between;
-}
+} */
 
 /* 방명록 코멘트 <span> */
-.show-container > span {
+/* .show-container > span {
   display: inline-block;
   word-wrap: break-word;
   margin-left: 10px;
-}
+} */
 
 /* 방명록 날짜 <span> */
-span.show-date {
+/* span.show-date {
   margin-top: 25px;
   font-size: 12px;
   color: grey;
-  /* margin: 5px 0px 5px 5px; */
-}
+} */
 
-.guestbook-entries {
+/* .guestbook-entries {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -216,11 +213,11 @@ span.show-date {
 
 #guestbook h2 {
   padding: 10px 0;
-}
+} */
 
-.guest-massage {
+/* .guest-massage {
   margin: 0px 0px 5px 5px;
-}
+} */
 
 /* #guest-message {
   width: 220px;
@@ -231,9 +228,9 @@ span.show-date {
 } */
 
 /* 삭제 모달 */
-#passwordModal > div > div {
+/* #passwordModal > div > div {
   margin: 30vh auto 0px auto;
-}
+} */
 /* 삭제 모달 끝 */
 
 /* .guest-name {
@@ -266,7 +263,7 @@ span.show-date {
 }
 */
 
-.deleteBtn {
+/* .deleteBtn {
   opacity: 0.7;
   width: 45px;
   height: 24px;
@@ -275,7 +272,7 @@ span.show-date {
   color: #fff;
   background: #706969;
   border-radius: 6px;
-}
+} */
 
 /* 방명록 css (임시) 끝 */
 
