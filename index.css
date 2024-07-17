@@ -208,3 +208,11 @@ a {
   display: flex;
   cursor: grab;
 }
+
+/* want to see other member */
+.showP {
+  opacity: 0;
+}
+.hoverEffect {
+  opacity: 1;
+}
