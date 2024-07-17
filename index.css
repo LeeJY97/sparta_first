@@ -109,6 +109,7 @@ a {
 #guestbook {
   /* background-color: #f9ddb7; */
   padding: 20px 40px;
+  border-top: 1px solid #706969;
 }
 
 /************  방명록 등록 부분 ************/
@@ -146,13 +147,14 @@ a {
 
 /* 방명록 코멘트 <textarea> */
 .input-message {
-  width: 100%;
+  width: 21.4%;
   height: 125px;
   /* background-color: #8b8b8b1c; */
   resize: none;
   color: black;
-  border: none;
-  outline: none;
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid #706969;
 }
 
 /* 등록 버튼 <div> */
