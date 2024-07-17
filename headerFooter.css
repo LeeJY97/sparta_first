@@ -46,57 +46,70 @@
 }
 * {
   font-family: "SCoreDream-normal";
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  list-style-type: none;
+  color: inherit;
+  text-decoration: none;
 }
 header {
   width: 100%;
   height: 130px;
-  background-color: rgb(112, 105, 105);
+  background-color: #fff;
+  border-bottom: 1px solid black;
+  margin: 0px auto;
 }
-a {
-  text-decoration: none;
-  color: inherit;
-}
-h1 {
-  padding: 30px;
-  font-weight: 500;
 
-  font-optical-sizing: auto;
+h1 {
+  padding: 40px;
+  font-weight: 500;
   color: black;
   font-style: normal;
+  font-size: 30px;
 }
 .menu {
   position: fixed;
-  right: 30px;
-  top: 35px;
+  right: 40px;
+  top: 40px;
 }
 
 #menuIcon {
   cursor: pointer;
+  position: relative;
+  right: -40px;
 }
-.menu li {
-  text-align: center;
-}
-.menu li:hover {
-  text-decoration-line: underline;
-  background-color: antiquewhite;
-}
-.menu ul {
+
+#menus_show {
   width: 80px;
-  height: 100px;
-  position: fixed;
-  right: 0;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 0px;
+  gap: 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-around;
   list-style-type: none;
-  background-color: rgb(215, 215, 215);
+  background-color: rgb(124, 124, 124);
   opacity: 0;
 }
 .menu:hover #menus_show {
   opacity: 1;
   transition-duration: 0.5s;
 }
-
+.menu a {
+  position: relative;
+  width: 80px;
+  font-size: 15px;
+  text-align: center;
+}
+.menu a:hover {
+  text-decoration-line: underline;
+  background-color: antiquewhite;
+}
 footer {
   width: 100%;
   height: 200px;
@@ -104,7 +117,7 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: rgb(112, 105, 105);
+  background-color: rgb(40, 40, 40);
   color: white;
 }
 footer h3 {

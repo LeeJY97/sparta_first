@@ -37,7 +37,7 @@ a {
   gap: 100px;
 }
 
-.image>img {
+.image > img {
   width: 300px;
   height: 500px;
   margin-top: 30px;
@@ -60,8 +60,12 @@ a {
   text-align: center;
   line-height: 1.5rem;
   box-shadow: 3px 3px 3px gray;
+  overflow: scroll;
+  -ms-overflow-style: none;
 }
-
+.box::-webkit-scrollbar {
+  display: none;
+}
 .box1 {
   text-align: center;
   line-height: 100px;
@@ -123,16 +127,14 @@ a {
 }
 
 /* 이름, 비밀번호 <input> */
-.input-name ,
-.input-pw
-{
+.input-name,
+.input-pw {
   width: 100%;
   height: 45%;
   border-radius: 3px;
   border: 1px solid #706969;
   padding: 2px 6px;
   margin-right: 10px;
-
 }
 
 /* 방명록 코멘트 <div> */
@@ -191,14 +193,14 @@ a {
 }
 
 /* 방명록 코멘트 <span> */
-.show-container > span{
+.show-container > span {
   display: inline-block;
   word-wrap: break-word;
   margin-left: 10px;
 }
 
 /* 방명록 날짜 <span> */
-span.show-date{
+span.show-date {
   margin-top: 25px;
   font-size: 12px;
   color: grey;
@@ -212,18 +214,13 @@ span.show-date{
   margin: 20px auto 20px auto;
 }
 
-
-
 #guestbook h2 {
   padding: 10px 0;
 }
 
-
-
 .guest-massage {
   margin: 0px 0px 5px 5px;
 }
-
 
 /* #guest-message {
   width: 220px;
@@ -233,13 +230,11 @@ span.show-date{
   padding: 2px 6px;
 } */
 
-
 /* 삭제 모달 */
-#passwordModal>div>div {
+#passwordModal > div > div {
   margin: 30vh auto 0px auto;
 }
 /* 삭제 모달 끝 */
-
 
 /* .guest-name {
   background-color: rgb(112, 105, 105);
@@ -270,7 +265,6 @@ span.show-date{
   align-items: center;
 }
 */
-
 
 .deleteBtn {
   opacity: 0.7;
