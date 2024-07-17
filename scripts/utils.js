@@ -97,4 +97,28 @@ function closeModal(){
 
 }
 
+function validInputs(){
+
+    const nameInput = document.getElementById('guest-name').value.trim();
+    const messageInput = document.getElementById('guest-message').value.trim();
+    const passwordInput = document.getElementById('guest-pw').value.trim();
+
+    if (nameInput === '') {
+        alert('이름을 입력해주세요.');
+        return false;
+    }
+
+    if (messageInput === '') {
+        alert('메시지를 입력해주세요.');
+        return false;
+    }
+
+    if (passwordInput === '') {
+        alert('비밀번호를 입력해주세요.');
+        return false;
+    }
+
+    return true;
+}
+
 

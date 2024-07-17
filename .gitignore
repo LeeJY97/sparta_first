@@ -1,3 +1,5 @@
 subPage_test.html
 
-./scripts/utils_test.js
+scripts/utils_test.js
+
+.gitignore

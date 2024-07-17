@@ -19,90 +19,116 @@
     align-items: center;
   }
 </style>
+
+<!-- 방명록 JS 코드 -->
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="./scripts/utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<!-- <script type="text/javascript" src="./scripts/utils.js"></script> -->
 <script type="module">
-  // Firebase SDK 라이브러리 가져오기
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-  import {
-    getFirestore,
-    doc,
-    getDocs,
-    collection,
-    addDoc,
-    updateDoc,
-    deleteDoc,
-    deleteField,
-    query,
-    orderBy,
-    limit,
-  } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    // Firebase SDK 라이브러리 가져오기
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import {
+        getFirestore,
+        doc,
+        getDocs,
+        collection,
+        addDoc,
+        updateDoc,
+        deleteDoc,
+        deleteField,
+        query,
+        startAt,
+        orderBy,
+        limit,
+    } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-  // Firebase 구성 정보 설정
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyD0oERzI0jnFGWaAR8NaYPkGqGYft-NOfs",
-    authDomain: "sparta-test-71931.firebaseapp.com",
-    projectId: "sparta-test-71931",
-    storageBucket: "sparta-test-71931.appspot.com",
-    messagingSenderId: "557999158224",
-    appId: "1:557999158224:web:799f97b40ab8e897293fd5",
-    measurementId: "G-1QGVSEZ52D",
-  };
+    // Firebase 구성 정보 설정
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyD0oERzI0jnFGWaAR8NaYPkGqGYft-NOfs",
+        authDomain: "sparta-test-71931.firebaseapp.com",
+        projectId: "sparta-test-71931",
+        storageBucket: "sparta-test-71931.appspot.com",
+        messagingSenderId: "557999158224",
+        appId: "1:557999158224:web:799f97b40ab8e897293fd5",
+        measurementId: "G-1QGVSEZ52D",
+    };
 
-  // Firebase 인스턴스 초기화
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+    // Firebase 인스턴스 초기화
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-  // const name = $('#name').text();
-  const name = '정민지'
+    // const name = $('#name').text();
+    const name = '이준열'
 
-  // 페이지 로딩 후 db 가져옴
-  $(window).load(async () => {
-    loadGuestBook();
-  });
+    let fieldId;
+    let pw;
 
-
-  // 방명록 저장
-  $("#addEntry").click(async function () {
-    let guest_name = $("#guest-name").val();
-    let pw = $("#pw").val();
-    let guest_message = $("#guest-message").val();
-    let date = getDate();
-
-    // await addDoc(collection(db, "guest_book"),doc);
-    await addDoc(collection(db, "guest_book"), {
-      name: name,
-      guest_name: guest_name,
-      pw: "",
-      guest_message: guest_message,
-      date: date,
+    // 페이지 로딩 후 db 가져옴
+    $(window).load(async () => {
+        loadGuestBook();
     });
 
-    inputClear();
-    cardClear();
-    loadGuestBook();
-  });
 
-  // db 불러오기
-  async function loadGuestBook() {
-    let docs = await getDocs(
-      query(collection(db, "guest_book"), orderBy("date", "desc"))
-    );
+    // 방명록 저장
+    $("#addEntry").click(async function () {
+        let guest_name = $("#guest-name").val();
+        let guest_pw = $("#guest-pw").val();
+        let guest_message = $("#guest-message").val();
+        let date = getDate();
 
-    createGuestBook(docs, name);
-  }
 
-  // db 삭제
-  $(document).on("click", ".deleteBtn", async function () {
-    // 클릭된 버튼의 id 값
-    const id = $(this).attr("id");
+        if (validInputs()) {
+            // await addDoc(collection(db, "guest_book"),doc);
+            await addDoc(collection(db, "guest_book"), {
+                name: name,
+                guest_name: guest_name,
+                guest_pw: guest_pw,
+                guest_message: guest_message,
+                date: date,
+            });
 
-    await deleteDoc(doc(db, "guest_book", id));
+            inputClear();
+            cardClear();
+            loadGuestBook();
+        }
+    });
 
-    cardClear();
-    loadGuestBook();
-  });
+    // db 불러오기
+    async function loadGuestBook() {
+        let docs = await getDocs(
+            query(collection(db, "guest_book"), orderBy("date", "desc"))
+        );
+
+        createGuestBook(docs, name);
+    }
+
+
+    /************ 방명록 삭제 ******************/
+    $(document).on("click", ".deleteBtn", async function () {
+        fieldId = $(this).attr("id");
+    });
+
+    $('#validPassword').click(async function () {
+        const inputPw = $('#inputPw').val();
+        let docs = await getDocs(collection(db, "guest_book"), doc);
+
+        if (checkPassword(inputPw, docs, fieldId)) {
+            await deleteDoc(doc(db, "guest_book", fieldId));
+            cardClear();
+            loadGuestBook();
+            closeModal();
+            window.alert('지워짐')
+            // $('#passwordModal').modal('hide');
+        } else {
+            window.alert('틀림')
+        }
+    })
 </script>
 
 <body>
@@ -166,12 +192,13 @@
     <h2>방명록</h2>
     <input type="text" id="guest-name" placeholder="Name" />
     <input type="text" id="guest-message" placeholder="Message" />
+    <input type="password" id="guest-pw" placeholder="Password" maxlength="4" />
     <!-- <button onclick="addEntry()">등록</button> -->
     <button id="addEntry">등록</button>
     <div class="guestbook-entries" id="guestbook-entries">
-      <!-- Guestbook entries will be added here -->
+        <!-- Guestbook entries will be added here -->
     </div>
-  </div>
+</div>
 
   <footer>
     <h3>코딩배우조</h3>
@@ -196,6 +223,31 @@
       </a>
     </div>
   </footer>
+  
+ <!-- 비밀번호 모달 -->
+ <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;"
+ aria-hidden="true">
+ <div class="modal-dialog">
+     <div class="modal-content">
+         <div class="modal-header">
+             <h1 class="modal-title fs-2" id="exampleModalLabel">비밀번호</h1>
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+             <form>
+                 <div class="mb-3">
+                     <label for="recipient-name" class="col-form-label">Recipient:</label>
+                     <input type="password" class="form-control" id="inputPw" maxlength="4">
+                 </div>
+         </div>
+         <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                 onclick="closeModal()">닫기</button>
+             <button type="button" class="btn btn-primary" id="validPassword">확인</button>
+         </div>
+     </div>
+ </div>
+</div>
   <script>
     $("#after").hover(
       function () {
