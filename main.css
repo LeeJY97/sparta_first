@@ -68,11 +68,11 @@
   justify-content: space-around;
   align-items: center;
   border-radius: 20px;
-  transition: transform 0.3s ease-in-out; /* 부드러운 전환 효과 */
+  transition: transform 0.3s ease-in-out;
 }
 
 .member-card:hover {
-  transform: scale(1.2); /* 크기를 1.25배로 확대 */
+  transform: scale(1.08);
 }
 
 .member-item {
