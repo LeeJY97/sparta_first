@@ -117,6 +117,7 @@
             window.alert('지워짐')
             // $('#passwordModal').modal('hide');
         } else {
+            closeModal();
             window.alert('틀림')
         }
     })
@@ -171,11 +172,19 @@
 
     <div id="guestbook">
         <h2>방명록</h2>
-        <input type="text" id="guest-name" placeholder="Name" />
-        <input type="text" id="guest-message" placeholder="Message" />
-        <input type="password" id="guest-pw" placeholder="Password" maxlength="4" />
-        <!-- <button onclick="addEntry()">등록</button> -->
-        <button id="addEntry">등록</button>
+        <div class="input-container">
+            <div class="input-name-pw-container">
+                <input type="text" class="input-name" id="guest-name" placeholder="이름" />
+                <input type="password" class="input-pw" id="guest-pw" placeholder="비밀번호" maxlength="4" />
+            </div>
+            <div class="input-message-container">
+                <textarea type="text" class="input-message" id="guest-message" placeholder="내용을 입력하세요" ></textarea>
+            </div>
+            <div class="input-submit-container">
+                <!-- <button onclick="addEntry()">등록</button> -->
+                <button id="addEntry">등록</button>
+            </div>
+        </div>
         <div class="guestbook-entries" id="guestbook-entries">
             <!-- Guestbook entries will be added here -->
         </div>
@@ -188,13 +197,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-2" id="exampleModalLabel">비밀번호</h1>
+                    <h1 class="modal-title fs-2" id="exampleModalLabel">Password</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
+                            <label for="recipient-name" class="col-form-label">비밀번호를 입력하세요:</label>
                             <input type="password" class="form-control" id="inputPw" maxlength="4">
                         </div>
                 </div>
@@ -218,7 +227,7 @@
 
     </script>
     <!-- <script src="script.js"></script> -->
-    <script src="/sparta_first/headerFooter.js"></script>
+    <script src="headerFooter.js"></script>
 </body>
 
 </html>

@@ -52,25 +52,36 @@ function createGuestBook(docs, name){
         let date = formatDate(row.date);
 
         let card = $(`
-            <div class="guest-book">
-                <div class="guest-name">
-                    <p>이름</p>
-                    <p>${guest_name}</p>
+            <hr>
+            <div class="show-container">
+                <div class="show-name-container">
+                    <span class="show-name">${guest_name}</span>
+                    <button class="deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal"id=${id}>삭제</button>
                 </div>
-                <div class="guest-message">
-                    <p>내용</p>
-                    <p>${guest_message}</p> 
-                </div>
-                <div class="date">
-                    <p>${date}</p>
-                </div>
-                
-                <button type="button" class="btn btn-primary deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal" data-bs-whatever="@mdo">삭제</button>
-                
-            </div>`)
+                <span class="show-guest-massage">${guest_message}</span> 
+                <span class="show-date">${date}</span>
+            </div>
+            `)
+
+            // let card = $(`
+            //     <div class="guest-book">
+            //         <div class="guest-name">
+            //             <p>${guest_name}</p>
+            //         </div>
+            //         <div class="guest-message">
+            //             <p>${guest_message}</p> 
+            //         </div>
+            //         <div class="date">
+            //             <p>${date}</p>
+            //         </div>
+            //         <button class="deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal"id=${id}>삭제</button>
+            //     </div>`)
+            // <button class="deleteBtn" id=${id}>삭제</button>
+        //     <button type="button" class="btn btn-primary deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal" data-bs-whatever="@mdo">삭제</button>
 
         $("#guestbook-entries").append(card);
     });
+    $("#guestbook-entries").append($(`<hr>`))
 }
 
 // 비빌번호 유효성 검사 
@@ -94,6 +105,9 @@ function checkPassword(inputPw, docs, fieldId){
 function closeModal(){
     $('#passwordModal').modal('hide');
     $("#inputPw").val("");
+    $("#inputPw").text("");
+
+    debugger;
 
 }
 

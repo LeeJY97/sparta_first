@@ -173,15 +173,23 @@
 
   <div id="guestbook">
     <h2>방명록</h2>
-    <input type="text" id="guest-name" placeholder="Name" />
-    <input type="text" id="guest-message" placeholder="Message" />
-    <input type="password" id="guest-pw" placeholder="Password" maxlength="4" />
-    <!-- <button onclick="addEntry()">등록</button> -->
-    <button id="addEntry">등록</button>
-    <div class="guestbook-entries" id="guestbook-entries">
-      <!-- Guestbook entries will be added here -->
+    <div class="input-container">
+        <div class="input-name-pw-container">
+            <input type="text" class="input-name" id="guest-name" placeholder="이름" />
+            <input type="password" class="input-pw" id="guest-pw" placeholder="비밀번호" maxlength="4" />
+        </div>
+        <div class="input-message-container">
+            <textarea type="text" class="input-message" id="guest-message" placeholder="내용을 입력하세요" ></textarea>
+        </div>
+        <div class="input-submit-container">
+            <!-- <button onclick="addEntry()">등록</button> -->
+            <button id="addEntry">등록</button>
+        </div>
     </div>
-  </div>
+    <div class="guestbook-entries" id="guestbook-entries">
+        <!-- Guestbook entries will be added here -->
+    </div>
+</div>
 
 
   <div id="footer"></div>

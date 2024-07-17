@@ -2,16 +2,19 @@
   padding: 0;
   margin: 0;
 }
+
 body {
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: auto;
   background-color: rgb(255, 248, 239);
 }
+
 a {
   list-style-type: none;
   color: inherit;
 }
+
 .header h2 {
   width: 500px;
   text-align: center;
@@ -19,10 +22,12 @@ a {
   font-weight: 300;
   font-size: 30px;
 }
+
 .header {
   width: 100%;
   height: 600px;
 }
+
 .memberIntroduce {
   width: 100%;
   display: flex;
@@ -31,11 +36,13 @@ a {
   gap: 100px;
   margin-left: 200px;
 }
-.image > img {
+
+.image>img {
   width: 300px;
   height: 500px;
   margin-top: 30px;
 }
+
 .introBox {
   margin-bottom: 80px;
   width: 300px;
@@ -44,6 +51,7 @@ a {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(6, 1fr);
 }
+
 .box {
   border-radius: 8px;
   width: 230px;
@@ -53,10 +61,12 @@ a {
   line-height: 1.5rem;
   box-shadow: 3px 3px 3px gray;
 }
+
 .box1 {
   text-align: center;
   line-height: 100px;
 }
+
 .box5 {
   display: flex;
   justify-content: center;
@@ -70,78 +80,168 @@ a {
   height: 30px;
   margin-right: 5px;
 }
+
 .box2 {
   grid-column: 2/3;
   grid-row: 2/3;
 }
+
 .box3 {
   grid-column: 3/4;
   grid-row: 3/4;
 }
+
 .box4 {
   grid-column: 2/3;
   grid-row: 4/5;
 }
+
 .box5 {
   grid-column: 1/2;
   grid-row: 5/6;
 }
 
-/* 방명록 css (임시입니다) */
-/* 방명록 css (임시입니다) */
+/************************ 방명록 css ************************/
 #guestbook {
-  background-color: #f9ddb7;
+  /* background-color: #f9ddb7; */
   padding: 20px 40px;
+}
+
+/************  방명록 등록 부분 ************/
+/* 전체 <div> */
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 이름, 비밀번호 <div> */
+.input-name-pw-container {
+  display: flex;
+  width: 20%;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* 이름, 비밀번호 <input> */
+.input-name ,
+.input-pw
+{
+  width: 100%;
+  height: 45%;
+  border-radius: 3px;
+  border: 1px solid #706969;
+  padding: 2px 6px;
+  margin-right: 10px;
+
+}
+
+/* 방명록 코멘트 <div> */
+.input-message-container {
+  width: 90%;
+  height: 100%;
+  margin: 10px 10px 0px 0px;
+}
+
+/* 방명록 코멘트 <textarea> */
+.input-message {
+  width: 100%;
+  height: 125px;
+  /* background-color: #8b8b8b1c; */
+  resize: none;
+  color: black;
+  border: none;
+  outline: none;
+}
+
+/* 등록 버튼 <div> */
+.input-submit-container {
+  display: flex;
+  width: 5%;
+}
+
+/* 등록 버튼 <button> */
+#addEntry {
+  width: 45px;
+  height: 24px;
+  border: none;
+  color: #fff;
+  background: #706969;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+/************ 방명록 보여지는 부분 ************/
+
+/* 방명록 전체 <div> */
+.show-container {
+  /* background-color: rgba(215, 215, 215, 0.606); */
+  margin-bottom: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 방명록 이름, 삭제 버튼 <div> */
+.show-name-container {
+  font-weight: bold;
+  margin: 10px 10px 5px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 방명록 코멘트 <span> */
+.show-container > span{
+  display: inline-block;
+  word-wrap: break-word;
+  margin-left: 10px;
+}
+
+/* 방명록 날짜 <span> */
+span.show-date{
+  margin-top: 25px;
+  font-size: 12px;
+  color: grey;
+  /* margin: 5px 0px 5px 5px; */
 }
 
 .guestbook-entries {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* width: 90vw; */
   margin: 20px auto 20px auto;
 }
 
-.guest-book {
-  background-color: rgba(215, 215, 215, 0.606);
-  margin-bottom: 5px;
-  border-radius: 5px;
-  height: 30px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  /* border: 1px solid grey; */
-}
+
 
 #guestbook h2 {
   padding: 10px 0;
 }
 
-#guest-name {
-  width: 120px;
-  height: 20px;
-  border-radius: 6px;
-  border: 2px solid rgb(112, 105, 105);
-  padding: 2px 6px;
+
+
+.guest-massage {
+  margin: 0px 0px 5px 5px;
 }
 
-#guest-message {
+
+/* #guest-message {
   width: 220px;
   height: 20px;
   border-radius: 6px;
   border: 2px solid #706969;
   padding: 2px 6px;
-}
+} */
 
-#guest-pw {
-  width: 220px;
-  height: 20px;
-  border-radius: 6px;
-  border: 2px solid #706969;
-  padding: 2px 6px;
-}
 
-.guest-name {
+/* 삭제 모달 */
+#passwordModal>div>div {
+  margin: 30vh auto 0px auto;
+}
+/* 삭제 모달 끝 */
+
+
+/* .guest-name {
   background-color: rgb(112, 105, 105);
   color: white;
   border-radius: 6px 0 0 6px;
@@ -151,8 +251,8 @@ a {
   justify-content: center;
   align-items: center;
 
-  /* border: 1px solid grey; */
-}
+  border: 1px solid grey;
+ } 
 
 .guest-message {
   width: 40%;
@@ -160,7 +260,6 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid grey; */
 }
 
 .date {
@@ -169,18 +268,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid grey; */
 }
+*/
 
-#addEntry {
-  width: 45px;
-  height: 24px;
-  padding: 2px;
-  border: none;
-  color: #fff;
-  background: #706969;
-  border-radius: 6px;
-}
 
 .deleteBtn {
   opacity: 0.7;
@@ -198,12 +288,14 @@ a {
 .beforeButton {
   width: 40px;
 }
+
 .section {
   width: 80%;
   margin: 50px auto;
   display: flex;
   justify-content: space-between;
 }
+
 .afterButton {
   display: flex;
   cursor: grab;
