@@ -13,7 +13,8 @@ a {
   color: inherit;
 }
 .header h2 {
-  width: 300px;
+  width: 500px;
+  text-align: center;
   margin: 50px auto;
   font-weight: 300;
   font-size: 30px;
