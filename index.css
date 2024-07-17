@@ -116,22 +116,23 @@ a {
 /* 전체 <div> */
 .input-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 /* 이름, 비밀번호 <div> */
 .input-name-pw-container {
+  background-color: pink;
   display: flex;
   width: 20%;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  /* justify-content: space-around; */
 }
 
 /* 이름, 비밀번호 <input> */
 .input-name,
 .input-pw {
   width: 100%;
-  height: 45%;
+  height: 30%;
   border-radius: 3px;
   border: 1px solid #706969;
   padding: 2px 6px;
@@ -140,15 +141,16 @@ a {
 
 /* 방명록 코멘트 <div> */
 .input-message-container {
-  width: 90%;
+  background-color: green;
+  width: 75%;
   height: 100%;
-  margin: 10px 10px 0px 0px;
+  margin: 0px 10px 0px 0px;
 }
 
 /* 방명록 코멘트 <textarea> */
 .input-message {
-  width: 21.4%;
-  height: 125px;
+  width: 90%;
+  height: 50px;
   /* background-color: #8b8b8b1c; */
   resize: none;
   color: black;
