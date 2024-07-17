@@ -2,33 +2,270 @@
 <html lang="ko">
 
 <head>
+  <meta charset='utf-8'>
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>슬라이드</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+
+    .section input[id*="slide"] {
+      display: none;
+    }
+
+
+    .section .slidewrap {
+      max-width: 500px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .section .slidelist {
+      white-space: nowrap;
+      font-size: 0;
+    }
+
+    .section .slidelist>li {
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
+      transition: all .5s;
+    }
+
+    .section .slidelist>li>a {
+      display: block;
+      position: relative;
+    }
+
+    .section .slidelist>li>a img {
+      width: 100%;
+    }
+
+
+    .section .slidelist label {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 50px;
+      cursor: pointer;
+    }
+
+    .section .slidelist .left {
+      left: 30px;
+      background: url('./img/left.png') center center / 100% no-repeat;
+    }
+
+    .section .slidelist .right {
+      right: 30px;
+      background: url('./img/right.png') center center / 100% no-repeat;
+    }
+
+
+    .section input[id="slide01"]:checked~.slidewrap .slidelist>li {
+      transform: translateX(0%);
+    }
+
+    .section input[id="slide02"]:checked~.slidewrap .slidelist>li {
+      transform: translateX(-100%);
+    }
+
+    .section input[id="slide03"]:checked~.slidewrap .slidelist>li {
+      transform: translateX(-200%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="section">
+    <input type="radio" name="slide" id="slide01" checked>
+    <input type="radio" name="slide" id="slide02">
+    <input type="radio" name="slide" id="slide03">
+
+    <div class="slidewrap">
+      <ul class="slidelist">
+        <li>
+          <a>
+            <label for="slide03" class="left"></label>
+            <img src="./img/gallery_jl06.JPG">
+            <label for="slide02" class="right"></label>
+          </a>
+        </li>
+        <li>
+          <a>
+            <label for="slide01" class="left"></label>
+            <img src="./img/gallery_jl02.jpg">
+            <label for="slide03" class="right"></label>
+          </a>
+        </li>
+        <li>
+          <a>
+            <label for="slide02" class="left"></label>
+            <img src="./img/gallery_jl01.jpg">
+            <label for="slide01" class="right"></label>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>subPage</title>
+  <style>
+
+
+
+  </style>
 </head>
 <link rel="stylesheet" href="index.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="common.css">
 <link href="https://fonts.googleapis.com/css2?family=Playwrite+HR:wght@100..400&display=swap" rel="stylesheet" />
 
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-<script type="module" src="./scripts/guest_book.js"></script>
+<script type="text/javascript" src="./scripts/utils.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<!-- <script type="text/javascript" src="./scripts/utils.js"></script> -->
+<script type="module">
+  // Firebase SDK 라이브러리 가져오기
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+  import {
+    getFirestore,
+    doc,
+    getDocs,
+    collection,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    deleteField,
+    query,
+    startAt,
+    orderBy,
+    limit,
+  } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+  // Firebase 구성 정보 설정
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyD0oERzI0jnFGWaAR8NaYPkGqGYft-NOfs",
+    authDomain: "sparta-test-71931.firebaseapp.com",
+    projectId: "sparta-test-71931",
+    storageBucket: "sparta-test-71931.appspot.com",
+    messagingSenderId: "557999158224",
+    appId: "1:557999158224:web:799f97b40ab8e897293fd5",
+    measurementId: "G-1QGVSEZ52D",
+  };
+
+  // Firebase 인스턴스 초기화
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // const name = $('#name').text();
+  const name = '이준'
+
+  let fieldId;
+  let pw;
+
+  // 페이지 로딩 후 db 가져옴
+  $(window).load(async () => {
+    loadGuestBook();
+  });
+
+
+  // 방명록 저장
+  $("#addEntry").click(async function () {
+    let guest_name = $("#guest-name").val();
+    let guest_pw = $("#guest-pw").val();
+    let guest_message = $("#guest-message").val();
+    let date = getDate();
+
+
+    if (validInputs()) {
+      // await addDoc(collection(db, "guest_book"),doc);
+      await addDoc(collection(db, "guest_book"), {
+        name: name,
+        guest_name: guest_name,
+        guest_pw: guest_pw,
+        guest_message: guest_message,
+        date: date,
+      });
+
+      inputClear();
+      cardClear();
+      loadGuestBook();
+    }
+  });
+
+  // db 불러오기
+  async function loadGuestBook() {
+    let docs = await getDocs(
+      query(collection(db, "guest_book"), orderBy("date", "desc"))
+    );
+
+    createGuestBook(docs, name);
+  }
+
+
+  /************ 방명록 삭제 ******************/
+  $(document).on("click", ".deleteBtn", async function () {
+    fieldId = $(this).attr("id");
+  });
+
+  $('#validPassword').click(async function () {
+    const inputPw = $('#inputPw').val();
+    let docs = await getDocs(collection(db, "guest_book"), doc);
+
+    if (checkPassword(inputPw, docs, fieldId)) {
+      await deleteDoc(doc(db, "guest_book", fieldId));
+      cardClear();
+      loadGuestBook();
+      closeModal();
+      window.alert('지워짐')
+      // $('#passwordModal').modal('hide');
+    } else {
+      window.alert('틀림')
+    }
+  })
+</script>
 
 <body>
-  <input type="hidden" value="이준" id="myName">
+
+
+
   <div id="header"></div>
 
   <div class="header">
     <h2>INTRODUCE OUR TEAM</h2>
     <div class="memberIntroduce">
+      <div class="slide-container">
+        <div class="slide-album">
+          <div class="slide-images" style="transform: translateX(-438px); transition: transform 0.5s ease-out 0s;">
+            <img src="src/gallery_jl01.jpg" alt="img">
+            <img src="src/gallery_jl04.jpg" alt="img">
+
+          </div>
+          <button class="btn-right">▶</button>
+          <button class="btn-left">◀</button>
+        </div>
+      </div>
       <div class="image">
         <img src="./img/KakaoTalk_20240701_154322656.jpg" alt="프로필사진" />
+
       </div>
+
       <div class="introBox">
         <div class="box box1">
           <p>이준</p>
@@ -58,41 +295,30 @@
 
   <div class="section">
     <div class="beforeButton">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-        style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
-        <path d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z"></path>
-      </svg>
+      <img
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAALxJREFUSEvt0jGKAlEQRdHjIgTNR3ENIswuBGPB7Yix4F5UcA+TmAuzCC2wQQys/9UGAzv9zb1Vr15Hy1+nZb6vIE34IyPqYYZlOj7VRw74DgMssM4kNREFfI8fHDHG6V2CLg5X+B9+S+AhL9kg4BHL6JJ9wCf4zyZv3jPBS/CSDVoXxBAvSbKImijvj1x8h1JBiG5rWtykGkEj2WKIOTZZm2oFwetjilUGL2lRCePhP89sUCX9CtK4Wo/oDIwQHhmOKR7aAAAAAElFTkSuQmCC"
+        width="60px" height="60px" />
     </div>
     <div class="afterButton">
-      <p class="showP">want to know other member</p>
-      <svg id="after" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-        style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
-        <path
-          d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z">
-        </path>
-      </svg>
+      <p>want to know other member</p>
+      <img
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKxJREFUSEvt1LEKg0AMxvG/byG+WhdxaHEouIoP4eZiu+iDtgQURE4vOcymc/x+Jhcvw/nJnPO5geiEtSNqgQJ4RxN3BRqgB5rlvRF4WhANMAD1JtSEaADJTka0gCBfoLJ2YgGk9hNAXsDv6FwsgGRI/Qw8NoETUB4hKcC+i8uA0IhOw9eWtWsdOuTT+VsA1zVNDtd24H5VyId0QO512WmXIFhn/Q/M2A1ER/YHwc0fGYJeKaMAAAAASUVORK5CYII="
+        width="50px" height="50px" />
     </div>
   </div>
 
   <div id="guestbook">
     <h2>방명록</h2>
-    <div class="input-container">
-      <div class="input-name-pw-container">
-        <input type="text" class="input-name" id="guest-name" placeholder="이름" />
-        <input type="password" class="input-pw" id="guest-pw" placeholder="비밀번호" maxlength="4" />
-      </div>
-      <div class="input-message-container">
-        <textarea type="text" class="input-message" id="guest-message" placeholder="내용을 입력하세요"></textarea>
-      </div>
-      <div class="input-submit-container">
-        <!-- <button onclick="addEntry()">등록</button> -->
-        <button id="addEntry">등록</button>
-      </div>
-    </div>
+    <input type="text" id="guest-name" placeholder="Name" />
+    <input type="text" id="guest-message" placeholder="Message" />
+    <input type="password" id="guest-pw" placeholder="Password" maxlength="4" />
+    <!-- <button onclick="addEntry()">등록</button> -->
+    <button id="addEntry">등록</button>
     <div class="guestbook-entries" id="guestbook-entries">
       <!-- Guestbook entries will be added here -->
     </div>
   </div>
+  <div id="footer"></div>
 
   <!-- 비밀번호 모달 -->
   <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;"
@@ -119,17 +345,6 @@
   </div>
   <script src="script.js"></script>
   <script src="headerFooter.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("#after").hover(function () {
-        $(".showP").addClass("hoverEffect");
-      }, function () {
-        $(function () {
-          $(".showP").removeClass("hoverEffect");
-        })
-      })
-    })
-  </script>
 </body>
 
 </html>
