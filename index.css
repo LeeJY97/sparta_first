@@ -37,48 +37,79 @@ a {
   gap: 100px;
 }
 
-.image > img {
+.image {
   width: 300px;
   height: 500px;
-  margin-top: 30px;
 }
-
+.image img {
+  width: 300px;
+  height: 400px;
+}
 .introBox {
   margin-bottom: 80px;
   width: 700px;
-  height: 400px;
+  height: 500px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  position: relative;
+  overflow: hidden;
 }
 
 .box {
-  border-radius: 8px;
-  width: 230px;
-  height: 100px;
-  background-color: rgb(210, 233, 253);
   text-align: center;
   line-height: 1.5rem;
-  box-shadow: 3px 3px 3px gray;
+  text-align: center;
   overflow: scroll;
   -ms-overflow-style: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .box::-webkit-scrollbar {
   display: none;
 }
 .box1 {
   text-align: center;
-  line-height: 100px;
+  grid-column: 2/3;
+  grid-row: 2/3;
 }
-
+.box1:before {
+  background-color: black;
+  content: "who";
+  line-height: 150px;
+  color: white;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  transition-duration: 1s;
+}
+.box1:hover:before {
+  opacity: 0;
+}
 .box5 {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   gap: 10px;
 }
 
+.box5_1 {
+  grid-column: 1/2;
+  grid-row: 2/4;
+
+  background-image: "./img/subPageGrid1.jpg";
+  z-index: 1;
+}
 .box5 img {
   width: 30px;
   height: 30px;
@@ -86,25 +117,97 @@ a {
 }
 
 .box2 {
-  grid-column: 2/3;
-  grid-row: 2/3;
+  grid-column: 1/3;
+  grid-row: 1/2;
+  background-color: aliceblue;
 }
-
+.box2:before {
+  background-image: url(./img/SUBIMG5.jpg);
+  background-size: cover;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  grid-column: 1/3;
+  grid-row: 1/2;
+  transition-duration: 1s;
+}
+.box2:hover:before {
+  top: -100%;
+}
 .box3 {
   grid-column: 3/4;
-  grid-row: 3/4;
+  grid-row: 1/3;
+  background-color: antiquewhite;
 }
-
+.box3:before {
+  background-image: url(./img/SUBIMG6.jpg);
+  background-size: cover;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  grid-column: 3/4;
+  grid-row: 1/3;
+  transition-duration: 1s;
+}
+.box3:hover:before {
+  left: 100%;
+}
 .box4 {
-  grid-column: 2/3;
-  grid-row: 4/5;
+  grid-column: 2/4;
+  grid-row: 3/4;
+  background-color: azure;
 }
-
+.box4:before {
+  background-image: url(./img/SUBIMG2.jpg);
+  background-size: cover;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  grid-column: 2/4;
+  grid-row: 3/4;
+  transition-duration: 1s;
+}
+.box4:hover:before {
+  top: 100%;
+}
 .box5 {
   grid-column: 1/2;
-  grid-row: 5/6;
+  grid-row: 2/4;
+  background-color: #878787;
 }
-
+.box5:before {
+  background-image: url(./img/SUBIMG3.jpg);
+  background-size: cover;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  grid-column: 1/2;
+  grid-row: 2/4;
+  transition-duration: 1s;
+}
+.box5:hover:before {
+  left: -100%;
+}
 /************************ 방명록 css ************************/
 #guestbook {
   /* background-color: #f9ddb7; */
