@@ -244,30 +244,45 @@
 
   <div class="section">
     <div class="beforeButton">
-      <img
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAALxJREFUSEvt0jGKAlEQRdHjIgTNR3ENIswuBGPB7Yix4F5UcA+TmAuzCC2wQQys/9UGAzv9zb1Vr15Hy1+nZb6vIE34IyPqYYZlOj7VRw74DgMssM4kNREFfI8fHDHG6V2CLg5X+B9+S+AhL9kg4BHL6JJ9wCf4zyZv3jPBS/CSDVoXxBAvSbKImijvj1x8h1JBiG5rWtykGkEj2WKIOTZZm2oFwetjilUGL2lRCePhP89sUCX9CtK4Wo/oDIwQHhmOKR7aAAAAAElFTkSuQmCC"
-        width="60px" height="60px" />
+      <a href="subPage_br.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+          style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
+          <path d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z"></path>
+        </svg>
+      </a>
     </div>
     <div class="afterButton">
-      <p>want to know other member</p>
-      <img
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKxJREFUSEvt1LEKg0AMxvG/byG+WhdxaHEouIoP4eZiu+iDtgQURE4vOcymc/x+Jhcvw/nJnPO5geiEtSNqgQJ4RxN3BRqgB5rlvRF4WhANMAD1JtSEaADJTka0gCBfoLJ2YgGk9hNAXsDv6FwsgGRI/Qw8NoETUB4hKcC+i8uA0IhOw9eWtWsdOuTT+VsA1zVNDtd24H5VyId0QO512WmXIFhn/Q/M2A1ER/YHwc0fGYJeKaMAAAAASUVORK5CYII="
-        width="50px" height="50px" />
+      <p class="showP">want to know other member</p>
+      <a href="subPage_jm.html">
+        <svg id="after" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+          style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
+          <path
+            d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z">
+          </path>
+        </svg>
+      </a>
     </div>
   </div>
 
   <div id="guestbook">
     <h2>방명록</h2>
-    <input type="text" id="guest-name" placeholder="Name" />
-    <input type="text" id="guest-message" placeholder="Message" />
-    <input type="password" id="guest-pw" placeholder="Password" maxlength="4" />
-    <!-- <button onclick="addEntry()">등록</button> -->
-    <button id="addEntry">등록</button>
+    <div class="input-container">
+      <div class="input-name-pw-container">
+        <input type="text" class="input-name" id="guest-name" placeholder="이름" />
+        <input type="password" class="input-pw" id="guest-pw" placeholder="비밀번호" maxlength="4" />
+        <div class="input-submit-container">
+          <!-- <button onclick="addEntry()">등록</button> -->
+          <button id="addEntry">등록</button>
+        </div>
+      </div>
+      <div class="input-message-container">
+        <textarea type="text" class="input-message" id="guest-message" placeholder="내용을 입력하세요"></textarea>
+      </div>
+    </div>
     <div class="guestbook-entries" id="guestbook-entries">
       <!-- Guestbook entries will be added here -->
     </div>
   </div>
-  <div id="footer"></div>
 
   <!-- 비밀번호 모달 -->
   <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;"
