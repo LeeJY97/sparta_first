@@ -57,25 +57,28 @@
     </div>
     <div class="section">
         <div class="beforeButton">
-          <a href="subPage_jm.html">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-              style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
-              <path d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z"></path>
-            </svg>
-          </a>
+            <a href="subPage_jm.html">
+                <svg id="before" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
+                    <path
+                        d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z">
+                    </path>
+                </svg>
+            </a>
+            <p class="beforeShowP">최지민</p>
         </div>
         <div class="afterButton">
-          <p class="showP">want to know other member</p>
-          <a href="subPage_mj.html">
-            <svg id="after" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-              style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
-              <path
-                d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z">
-              </path>
-            </svg>
-          </a>
+            <p class="showP">정민지</p>
+            <a href="subPage_mj.html">
+                <svg id="after" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
+                    <path
+                        d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z">
+                    </path>
+                </svg>
+            </a>
         </div>
-      </div>
+    </div>
 
     <div id="guestbook">
         <h2>방명록</h2>
@@ -86,7 +89,7 @@
                 <div class="input-submit-container">
                     <!-- <button onclick="addEntry()">등록</button> -->
                     <button id="addEntry">등록</button>
-                  </div>
+                </div>
             </div>
             <div class="input-message-container">
                 <textarea type="text" class="input-message" id="guest-message" placeholder="내용을 입력하세요"></textarea>
@@ -124,6 +127,7 @@
     </div>
 
     <script>
+        // 화살표 hover Effect
         $(document).ready(function () {
             $("#after").hover(function () {
                 $(".showP").addClass("hoverEffect");
@@ -133,6 +137,16 @@
                 })
             })
         })
+        $(document).ready(function () {
+            $("#before").hover(function () {
+                $(".beforeShowP").addClass("hoverEffect");
+            }, function () {
+                $(function () {
+                    $(".beforeShowP").removeClass("hoverEffect");
+                })
+            })
+        })
+
     </script>
     <!-- <script src="script.js"></script> -->
     <script src="./headerFooter.js"></script>

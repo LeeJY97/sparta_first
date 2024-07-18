@@ -61,7 +61,7 @@ a {
   background-color: rgb(199 231 44);
 }
 header {
-  width: 100%;
+  width: 90%;
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -76,6 +76,7 @@ header h1 {
   font-size: 28px;
   font-weight: 600;
   margin: 0 auto;
+  margin-left: 70px;
 }
 .menuButton {
   width: 210px;
