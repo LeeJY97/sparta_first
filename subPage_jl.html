@@ -7,116 +7,9 @@
     content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <title>슬라이드</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-
-    .section input[id*="slide"] {
-      display: none;
-    }
-
-
-    .section .slidewrap {
-      max-width: 500px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    .section .slidelist {
-      white-space: nowrap;
-      font-size: 0;
-    }
-
-    .section .slidelist>li {
-      display: inline-block;
-      vertical-align: middle;
-      width: 100%;
-      transition: all .5s;
-    }
-
-    .section .slidelist>li>a {
-      display: block;
-      position: relative;
-    }
-
-    .section .slidelist>li>a img {
-      width: 100%;
-    }
-
-
-    .section .slidelist label {
-      position: absolute;
-      z-index: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      padding: 50px;
-      cursor: pointer;
-    }
-
-    .section .slidelist .left {
-      left: 30px;
-      background: url('./img/left.png') center center / 100% no-repeat;
-    }
-
-    .section .slidelist .right {
-      right: 30px;
-      background: url('./img/right.png') center center / 100% no-repeat;
-    }
-
-
-    .section input[id="slide01"]:checked~.slidewrap .slidelist>li {
-      transform: translateX(0%);
-    }
-
-    .section input[id="slide02"]:checked~.slidewrap .slidelist>li {
-      transform: translateX(-100%);
-    }
-
-    .section input[id="slide03"]:checked~.slidewrap .slidelist>li {
-      transform: translateX(-200%);
-    }
-  </style>
+  
 </head>
 
-<body>
-  <div id="header"></div>
-
-  <div class="section">
-    <input type="radio" name="slide" id="slide01" checked>
-    <input type="radio" name="slide" id="slide02">
-    <input type="radio" name="slide" id="slide03">
-
-    <div class="slidewrap">
-      <ul class="slidelist">
-        <li>
-          <a>
-            <label for="slide03" class="left"></label>
-            <img src="./img/gallery_jl06.JPG">
-            <label for="slide02" class="right"></label>
-          </a>
-        </li>
-        <li>
-          <a>
-            <label for="slide01" class="left"></label>
-            <img src="./img/gallery_jl02.jpg">
-            <label for="slide03" class="right"></label>
-          </a>
-        </li>
-        <li>
-          <a>
-            <label for="slide02" class="left"></label>
-            <img src="./img/gallery_jl01.jpg">
-            <label for="slide01" class="right"></label>
-          </a>
-        </li>
-
-      </ul>
-    </div>
-  </div>
-</body>
 
 </html>
 
@@ -262,8 +155,7 @@
             <img src="src/gallery_jl04.jpg" alt="img">
 
           </div>
-          <button class="btn-right">▶</button>
-          <button class="btn-left">◀</button>
+         
         </div>
       </div>
       <div class="image">
@@ -273,16 +165,31 @@
 
       <div class="introBox">
         <div class="box box1">
-          <p>이준</p>
+          <p>이준 <br>
+          JUN LEE 준리 <br>
+          별명:춘리
+        </p>
         </div>
         <div class="box box2">
-          <p>INTRODUCE MYSELF, ENFP</p>
+          <p>INTRODUCE MYSELF, ENFP <br>
+          여행 좋아합니다 </p>
         </div>
         <div class="box box3">
-          <p>3살강아지주인</p>
+          <p>3살강아지주인<br>
+          이름:이만두,롱다리푸들<br>
+          강아지마저 ENFP <br>
+          토이푸들이랬는데 아직도크는중<br>
+          bgm으로 짖는 소리 날 수 있음
+    </p>
         </div>
         <div class="box box4">
-          <p>꾸준히 노력합니다</p>
+          <p>꾸준히 노력합니다 <br>
+            바리스타에서 <br>핸드폰수리에서
+            코딩으로 <br>
+            느리게 배우지만 습득하면빨라짐 
+        
+
+          </p>
         </div>
         <div class="box box5">
           <p>LINK</p>
