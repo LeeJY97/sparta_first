@@ -108,12 +108,15 @@ span.show-name {
   flex-direction: column;
   /* justify-content: space-between; */
 }
+.show-guest-massage{
+  margin-left: 10px;
+}
 
- div > span {
+div > span {
   margin-top: 5px;
       display: block;
      word-wrap: break-word;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 /* 방명록 날짜 <span> */
