@@ -3,6 +3,7 @@
 1. main.html -> index.html로 변경
 2. 폴더 정리 (css, 이미지 등)
 3. 공통적으로 들어가는 '<stylesheet>, <script>'를 하나로 관리 가능할까요???! 
+4. 프로젝트명
 
 
 

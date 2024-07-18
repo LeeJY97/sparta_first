@@ -91,15 +91,28 @@
   border-top: 1px solid rgb(211, 211, 211);
 }
 
-/* 방명록 이름, 삭제 버튼 <div> */
-span.show-name {
-  font-weight: bold;
-  width: 90%;
-  margin: 10px 10px 5px 10px;
+.show-name-container{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
+/* 방명록 이름 <div> */
+span.show-name {
+  font-weight: bold;
+  width: 90%;
+  margin: 10px 10px 5px 10px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+}
+/* 방명록 날짜 <span> */
+span.show-date {
+  margin: 25px 0px 10px 10px;
+  font-size: 12px;
+  color: grey;
+}
+
 
 
 /* 삭제, 답글 버튼 <div> */
@@ -108,7 +121,7 @@ span.show-name {
   flex-direction: column;
   /* justify-content: space-between; */
 }
-.show-guest-massage{
+.show-guest-message{
   margin-left: 10px;
 }
 
@@ -119,12 +132,7 @@ span.show-name {
     /* margin-left: 10px; */
 /* } */
 
-/* 방명록 날짜 <span> */
-span.show-date {
-  margin-top: 25px;
-  font-size: 12px;
-  color: grey;
-}
+
 
 .guestbook-entries {
   display: flex;
@@ -170,6 +178,27 @@ span.show-date {
   margin-top: 5px;
 }
 
+.updateBtn{
+  opacity: 0.7;
+  width: 45px;
+  height: 24px;
+  padding: 2px;
+  border: none;
+  color: #fff;
+  background: rgb(210, 223, 140);
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+#updateEntry{
+  width: 45px;
+  height: 24px;
+  border: none;
+  color: #fff;
+  background: #706969;
+  border-radius: 6px;
+  margin-right: 10px;
+}
 
 /************  방명록 답글 등록 ************/
   /* 답글 전체 <div> */
