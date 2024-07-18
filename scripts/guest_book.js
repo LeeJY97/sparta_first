@@ -105,7 +105,7 @@ async function saveDoc(obj) {
     }
 
     inputClear();
-    cardClear();
+    guestBookClear();
     loadGuestBook();
 }
 
@@ -196,7 +196,7 @@ $('#validPassword').click(async function () {
 
 // 클리어, 다시 로드
 function clearAll() {
-    cardClear();
+    guestBookClear();
     loadGuestBook();
     closeModal();
 }
@@ -213,31 +213,56 @@ async function singleDeleteDoc() {
 /* * * * * * * * * 방명록, 답글 수정 * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 let mode;
-
+let type;
 $(document).on("click", ".updateBtn", async function () {
     mode = "update";
+    type = "guest_book"
+    fieldId = $(this).attr("id");
+});
+
+$(document).on("click", ".replyUpdateBtn", async function () {
+    mode = "update";
+    type = "reply";
     fieldId = $(this).attr("id");
 });
 
 
-// 답글 폼 생성
+// 수정 전 div, id 보관
+let currentDiv;
+let currentFieldId;
+
+// 수정 버튼 -> 비번 입력 -> 새로운 폼 생성 
 async function createUpdateForm() {
     closeModal();
+    removeReplyInput();
+    revertDiv();
 
-    const tempDiv = document.getElementById('container-' + fieldId);
+    currentFieldId = fieldId;
 
-    const updateGuestName = tempDiv.querySelector('.show-name').textContent;
-    const updateGuestMessage = tempDiv.querySelector('.show-guest-message').textContent;
+    let updateGuestName;
+    let updateGuestMessage;
 
+    let updateInput;
 
-    let updateInput = $(`
-        <div class="input-container">
+    // 상위 방명록일 경우 
+    if(type == "guest_book"){
+        currentDiv = document.getElementById('container-' + fieldId);
+        updateGuestName = currentDiv.querySelector('.show-name').textContent;
+        updateGuestMessage = currentDiv.querySelector('.show-guest-message').textContent;
+    }else if(type == "reply"){
+        currentDiv = document.getElementById('reply-show-container-' + fieldId);
+        updateGuestName = currentDiv.querySelector('.reply-show-name').textContent;
+        updateGuestMessage = currentDiv.querySelector('.reply-show-guest-message').textContent;
+    }
+
+    updateInput = $(`
+        <div class="input-container" id="tempDiv">
             <div class="input-name-pw-container">
                 <input type="text" class="input-name" id="update-guest-name" value="${updateGuestName}"/>
                 <div class="input-submit-container">
                     <button id="updateEntry">수정</button>
                     <button id="updateCancle">취소</button>
-                  </div>
+                </div>
             </div>
             <div class="input-message-container">
                 <textarea type="text" class="input-message" id="update-guest-message">${updateGuestMessage}</textarea>
@@ -245,14 +270,41 @@ async function createUpdateForm() {
         </div>
     `)
 
-    tempDiv.insertAdjacentElement('afterend', updateInput[0]);
-    $(tempDiv).hide();
-
-    // 취소 버튼 (나중에 이벤트 따로 만들어야함)
-    // $(updateInput).hide();
+    currentDiv.insertAdjacentElement('afterend', updateInput[0]);
+    $(currentDiv).hide();
 }
 
-// 수정 폼 -> 수정 버튼 클릭 이벤트 (db값 수정)
+
+// 수정 -> 취소 버튼 클릭 이벤트
+$(document).on("click", "#updateCancle", async function () {
+    var currentDivId = $(currentDiv).attr('id');  
+    updateFormClear(currentDivId);  
+});
+
+// 수정 입력 폼 지우기
+function updateFormClear(currentDivId){
+    const currentDiv = $('#'+currentDivId);
+
+
+    revertDiv();
+}
+
+function revertDiv(){
+    const tempDiv = $('#tempDiv')
+    tempDiv.remove();
+
+    // const currentDiv = $('#reply-show-container-'+currentFieldId);
+    // currentDiv.show();
+    $('#reply-show-container-'+currentFieldId).show();
+    $('#container-'+currentFieldId).show();
+    
+
+    currentFieldId = null;
+}
+
+
+
+// 수정 폼 -> 등록 버튼 클릭 이벤트 (db값 수정)
 $(document).on("click", "#updateEntry", async function () {
 
     const updateGuestName = $('#update-guest-name').val();
@@ -269,10 +321,6 @@ $(document).on("click", "#updateEntry", async function () {
 
     clearAll();
 });
-
-
-
-
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -307,9 +355,13 @@ function createGuestBook(docs, name) {
                         <span class="show-date">${date}</span>
                     </div>
                     <div class="show-button-container">
-                        <button class="replyBtn" id="${id}">답글</button>
-                        <button class="deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">삭제</button>
-                        <button class="updateBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">수정</button>
+                        <div>
+                            <button class="replyBtn" id="${id}">답글</button>
+                        </div>
+                        <div>
+                            <button class="deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">삭제</button>
+                            <button class="updateBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">수정</button>
+                        </div
                     </div>
                 </div>
             `);
@@ -321,18 +373,18 @@ function createGuestBook(docs, name) {
             const parentDiv = document.getElementById('container-' + parentId);
 
             guest_book = $(`
-                <div class="reply-show-container">
+                <div class="reply-show-container" id="reply-show-container-${id}">
                     <div class="reply-show-icon-container">
                             <p>⤷</p>
                     </div>
                     <div class="reply-show-info-container" id="reply-container-${id}">
                         <span class="reply-show-name">${guest_name}</span>
-                        <span class="reply-show-guest-massage">${guest_message}</span> 
+                        <span class="reply-show-guest-message">${guest_message}</span> 
                         <span class="reply-show-date">${date}</span>
                     </div>
-                    <div class="reply-show-message-container">
+                    <div class="reply-show-btn-container">
                         <button class="deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">삭제</button>
-                        <button class="updateBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">수정</button>
+                        <button class="replyUpdateBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">수정</button>
                     </div>
                 </div>
             `)
@@ -345,10 +397,11 @@ function createGuestBook(docs, name) {
 }
 
 
-
 // 답글 버튼 누르면 새 영역 생김
 $(document).on("click", ".replyBtn", async function () {
-    removeReplyInput()
+    removeReplyInput();
+    revertDiv();
+
     parentId = $(this).attr("id");
 
     const parentDiv = document.getElementById('container-' + parentId);
@@ -428,7 +481,7 @@ function inputClear() {
 }
 
 // 방명록 비우기 (데이터 추가, 삭제시 새로운 리스트 추가하기 위함)
-function cardClear() {
+function guestBookClear() {
     $("#guestbook-entries").empty();
 }
 

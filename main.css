@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 
 
 .main-container {
   padding: 40px;
 }
 
+=======
+>>>>>>> 1e30e2aaad55f4ffa38a023090c98e4f6e4da62e
 /* 팀 소개 CSS 시작 */
 .team-container {
   text-align: left;
@@ -31,6 +34,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  border-left: 1px solid #000;
 }
 .msg-box {
   display: flex;
@@ -86,6 +90,7 @@
 .msg-item li {
   margin-bottom: 10px;
   font-family: "SCoreDream-light";
+  line-height: 1.7;
 }
 
 .team-detail img {
@@ -110,6 +115,7 @@
   /* align-items: center; */
   /* background-color: pink; */
   margin-top: 50px;
+  padding: 40px;
 }
 
 .member {
@@ -152,8 +158,9 @@
   width: 100%;
   /* border-radius: 50%; */
 }
+
 .titleCm span {
-  background: linear-gradient(180deg, #ffffff, 50%, rgb(199 231 44) 50%);
+  background: linear-gradient(180deg, transparent, 50%, rgb(199 231 44) 50%);
 }
 
 .member div {
@@ -180,8 +187,11 @@
   /* background-color: #ddd; */
   border-bottom: 1px solid #000;
   position: relative;
+  padding: 40px;
 }
-
+.gallery {
+  background-color: rgba(202, 202, 202, 0.188);
+}
 .gallery-container {
   max-width: 90%;
   margin: 0 auto;
@@ -231,10 +241,7 @@
   /* transition: width 5s ease, height 5s ease; */
 }
 .gallery-item ul li img.on {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  object-fit: contain;
   transform: scale(0.9);
 }
 .gallery-pagination {

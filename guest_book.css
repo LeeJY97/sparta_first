@@ -90,7 +90,7 @@
   border-top: 1px solid rgb(211, 211, 211);
 }
 
-.show-name-container{
+.show-name-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -101,9 +101,6 @@ span.show-name {
   font-weight: bold;
   width: 90%;
   margin: 10px 10px 5px 10px;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
 }
 /* 방명록 날짜 <span> */
 span.show-date {
@@ -112,25 +109,22 @@ span.show-date {
   color: grey;
 }
 
-
 /* 삭제, 답글 버튼 <div> */
 .show-button-container {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  justify-content: space-around;
 }
-.show-guest-message{
+
+.show-button-container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.show-guest-message {
   margin-left: 10px;
 }
-
-/* div > span { */
-/* margin-top: 5px; */
-/* display: block; */
-/* word-wrap: break-word; */
-/* margin-left: 10px; */
-/* } */
-
-
 
 .guestbook-entries {
   display: flex;
@@ -139,11 +133,15 @@ span.show-date {
   margin: 20px auto 20px auto;
 }
 
+.guestbook-entries:last-child {
+  border-bottom: 1px solid rgb(211, 211, 211);
+}
+
 #guestbook h2 {
   padding: 10px 0;
 }
 
-.guest-massage {
+.guest-message {
   margin: 0px 0px 5px 5px;
 }
 
@@ -161,7 +159,6 @@ span.show-date {
   color: #fff;
   background: #706969;
   border-radius: 6px;
-  margin-top: 10px;
 }
 
 .replyBtn {
@@ -173,10 +170,20 @@ span.show-date {
   color: #fff;
   background: rgb(30, 92, 92);
   border-radius: 6px;
-  margin-top: 5px;
 }
 
-.updateBtn{
+.updateBtn {
+  opacity: 0.7;
+  width: 45px;
+  height: 24px;
+  padding: 2px;
+  border: none;
+  color: #fff;
+  background: rgb(210, 223, 140);
+  border-radius: 6px;
+  margin-top: 2px;
+}
+.replyUpdateBtn {
   opacity: 0.7;
   width: 45px;
   height: 24px;
@@ -188,7 +195,7 @@ span.show-date {
   margin-top: 5px;
 }
 
-#updateEntry{
+#updateEntry {
   width: 45px;
   height: 24px;
   border: none;
@@ -276,7 +283,7 @@ span.show-date {
 /************  답글 보여지는 부분 ************/
 /* 답글 전체 <div> */
 .reply-show-container {
-  margin: 0px 0px 5px 30px;
+  margin: 0px 0px 15px 30px;
   border-radius: 5px;
   display: flex;
   flex-direction: row;
@@ -295,6 +302,12 @@ span.show-date {
   justify-content: space-around;
 }
 
+.reply-show-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
 span.reply-show-date {
   margin-top: 25px;
   font-size: 12px;
@@ -306,19 +319,6 @@ span.reply-show-name {
   font-weight: bold;
   margin: 10px 0px 5px 0px;
 }
-
-/* div.show-name-container > span.show-guest-massage{ */
-/* display: block; */
-/* word-wrap: break-word; */
-/* width: 750px; */
-/* color: red; */
-/* } */
-
-/************ 버튼들 ************/
-/* 답글 버튼 <div> */
-/* .reply-input-button-container {
-    margin-left: 20px;
-  } */
 
 /* 답글 등록 버튼 <button> */
 #addReply {

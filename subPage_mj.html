@@ -28,8 +28,8 @@
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 <body>
@@ -66,14 +66,15 @@
   <div class="section">
     <div class="beforeButton">
       <a href="subPage_jy.html">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+        <svg id="before" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
           style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
           <path d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z"></path>
         </svg>
       </a>
+      <p class="beforeShowP">이준열</p>
     </div>
     <div class="afterButton">
-      <p class="showP">want to know other member</p>
+      <p class="showP">정소현</p>
       <a href="subPage_sh.html">
         <svg id="after" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
           style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
@@ -139,9 +140,25 @@
         })
       })
     })
+    $(document).ready(function () {
+      $("#before").hover(function () {
+        $(".beforeShowP").addClass("hoverEffect");
+      }, function () {
+        $(function () {
+          $(".beforeShowP").removeClass("hoverEffect");
+        })
+      })
+    })
+    // 비번 모달 닫기
+    function closeModal() {
+      $('#passwordModal').modal('hide');
+      $("#inputPw").val("");
+      $("#inputPw").text("");
+    }
   </script>
   <!-- <script src="script.js"></script> -->
   <script src="headerFooter.js"></script>
+  <script src="scroll.js"></script>
 </body>
 
 </html>
