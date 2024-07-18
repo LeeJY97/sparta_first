@@ -116,10 +116,10 @@ span.show-date {
   justify-content: space-around;
 }
 
-.show-button-container > div{
- display: flex;
- flex-direction: column;
- justify-content: start;
+.show-button-container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 
 .show-guest-message {
@@ -133,7 +133,7 @@ span.show-date {
   margin: 20px auto 20px auto;
 }
 
-.guestbook-entries:last-child{
+.guestbook-entries:last-child {
   border-bottom: 1px solid rgb(211, 211, 211);
 }
 
@@ -182,9 +182,8 @@ span.show-date {
   background: rgb(210, 223, 140);
   border-radius: 6px;
   margin-top: 2px;
-
 }
-.replyUpdateBtn{
+.replyUpdateBtn {
   opacity: 0.7;
   width: 45px;
   height: 24px;
@@ -303,7 +302,7 @@ span.show-date {
   justify-content: space-around;
 }
 
-.reply-show-btn-container{
+.reply-show-btn-container {
   display: flex;
   flex-direction: column;
   justify-content: end;
