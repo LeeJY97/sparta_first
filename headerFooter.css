@@ -155,3 +155,10 @@ footer h3 {
   display: flex;
   gap: 20px;
 }
+.members a {
+  transition-duration: 0.4s;
+}
+.members a:hover {
+  color: rgb(199 231 44);
+  transform: scale(1.1);
+}
