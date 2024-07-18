@@ -359,15 +359,12 @@ $(document).on("click", ".replyBtn", async function () {
                 <p class="reply-icon">⤷</p>
                 <input type="text" class="reply-input-name" id="reply-guest-name" placeholder="이름" />
                 <input type="password" class="reply-input-pw" id="reply-guest-pw" placeholder="비밀번호" maxlength="4" />
+                <button id="addReply">등록</button>
+                <button id="removeReply">취소</button>
             </div>
             <div class="reply-input-message-container">
                 <textarea type="text" class="reply-input-message" id="reply-guest-message" placeholder="내용을 입력하세요"></textarea>
             </div>
-            <div class="reply-input-button-container">
-                <button id="addReply">등록</button>
-                <button id="removeReply">취소</button>
-            </div>
-        </div>
     `)
 
     parentDiv.insertAdjacentElement('afterend', replyInput[0]);
