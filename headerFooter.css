@@ -70,6 +70,7 @@ header {
   justify-content: space-between;
   padding: 20px;
   margin-bottom: 20px;
+  margin-top: 15px;
 }
 #header {
   width: 100%;
@@ -171,7 +172,8 @@ footer h3 {
 
 /* 프로그래스바 */
 .progressbar {
-  position: fixed; /* 페이지 상단에 프로그레스바 고정 */
+  position: fixed;
+  /* 페이지 상단에 프로그레스바 고정 */
   height: 15px;
   top: 0;
   left: 0;
