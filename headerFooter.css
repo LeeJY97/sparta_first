@@ -94,8 +94,9 @@ h1 {
   align-items: center;
   justify-content: space-around;
   list-style-type: none;
-  background-color: rgb(124, 124, 124);
+  background-color: black;
   opacity: 0;
+  border-radius: 3px;
 }
 .menu:hover #menus_show {
   opacity: 1;
@@ -107,10 +108,10 @@ h1 {
   overflow: hidden;
   font-size: 15px;
   text-align: center;
+  color: white;
 }
 .menu a:hover {
-  text-decoration-line: underline;
-  background-color: antiquewhite;
+  background-color: gray;
 }
 footer {
   width: 100%;
