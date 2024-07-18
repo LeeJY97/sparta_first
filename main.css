@@ -149,6 +149,9 @@
   width: 100%;
   /* border-radius: 50%; */
 }
+.titleCm span {
+  background: linear-gradient(180deg, #ffffff, 50%, rgb(199 231 44) 50%);
+}
 
 .member div {
   font-size: 25px;

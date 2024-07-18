@@ -90,7 +90,7 @@
   border-top: 1px solid rgb(211, 211, 211);
 }
 
-.show-name-container{
+.show-name-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -112,14 +112,13 @@ span.show-date {
   color: grey;
 }
 
-
 /* 삭제, 답글 버튼 <div> */
 .show-button-container {
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
 }
-.show-guest-message{
+.show-guest-message {
   margin-left: 10px;
 }
 
@@ -129,8 +128,6 @@ span.show-date {
 /* word-wrap: break-word; */
 /* margin-left: 10px; */
 /* } */
-
-
 
 .guestbook-entries {
   display: flex;
@@ -176,7 +173,7 @@ span.show-date {
   margin-top: 5px;
 }
 
-.updateBtn{
+.updateBtn {
   opacity: 0.7;
   width: 45px;
   height: 24px;
@@ -200,7 +197,7 @@ span.show-date {
   margin-top: 5px;
 }
 
-#updateEntry{
+#updateEntry {
   width: 45px;
   height: 24px;
   border: none;

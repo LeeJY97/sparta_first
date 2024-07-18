@@ -55,49 +55,51 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.top {
+  width: 100%;
+  height: 15px;
+  background-color: rgb(199 231 44);
+}
 header {
-  width: 90%;
-  height: 130px;
-  background-color: #fff;
-
-  margin: 0px auto;
-  padding: 40px;
-
+  width: 100%;
+  height: 50px;
   display: flex;
   justify-content: space-between;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 #header {
+  width: 100%;
   border-bottom: 1px solid black;
 }
 header h1 {
   font-size: 28px;
   font-weight: 600;
+  margin: 0 auto;
 }
 .menuButton {
-  width: 300px;
+  width: 210px;
   height: 30px;
   display: flex;
   justify-content: space-around;
-  gap: 10px;
 }
 #category-1,
 #category-2,
 #category-3 {
   font-size: 15px;
   position: relative;
-  width: 100px;
+  width: 70px;
   height: 30px;
   line-height: 30px;
-  border: 1px solid #37474f;
-  box-shadow: 1px 1px 1px #37474f;
+
   color: #37474f;
   text-align: center;
 }
 #category-1::before {
-  content: "팀 소개";
+  content: "팀소개";
 }
 #category-2::before {
-  content: "팀원 소개";
+  content: "팀원소개";
 }
 #category-3::before {
   content: "갤러리";
@@ -138,6 +140,8 @@ footer {
   flex-direction: row;
   justify-content: space-around;
   color: white;
+  background-color: #151515;
+  background-size: cover;
 }
 footer h3 {
   font-size: 30px;
@@ -150,4 +154,11 @@ footer h3 {
   align-items: center;
   display: flex;
   gap: 20px;
+}
+.members a {
+  transition-duration: 0.4s;
+}
+.members a:hover {
+  color: rgb(199 231 44);
+  transform: scale(1.1);
 }
