@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main</title>
-  </head>
-  <link rel="stylesheet" href="main.css" />
-  <link rel="stylesheet" href="scrollbtn.css" />
-  <link rel="stylesheet" href="common.css" />
 
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main</title>
+</head>
+<link rel="stylesheet" href="main.css" />
+<link rel="stylesheet" href="scrollbtn.css" />
+<link rel="stylesheet" href="common.css" />
 
-    <!--팀 소개 영역 시작-->
-    <section class="team-container">
-      <div id="team-desc" class="team-desc">
-        <div class="team-detail">
-          <img src="./img/8.png" />
+<body>
+  <div id="header"></div>
 
-          <div class="msg-gird">
-            <div class="msg-item first">
-              <span>React_8</span>
-              <h1>DO IT<br />CODING</h1>
-              <h3 class="IntroH3">Introduction</h3>
+  <!--팀 소개 영역 시작-->
+  <section class="team-container">
+    <div id="team-desc" class="team-desc">
+      <div class="team-detail">
+        <img src="./img/8.png" />
+
+        <div class="msg-gird">
+          <div class="msg-item first">
+            <span>React_8</span>
+            <h1>DO IT<br />CODING</h1>
+            <h3 class="IntroH3">Introduction</h3>
+            <ul class="mg-20">
+              <li>우리팀은~~~</li>
+            </ul>
+          </div>
+          <div class="msg-box">
+            <div class="msg-item line-r">
+              <h3>Determination</h3>
               <ul class="mg-20">
-                <li>우리팀은~~~</li>
+                <li>✓ 열심히 공부하고 노력하자!</li>
+                <li>✓ 화이팅!!!</li>
+                <li>✓ 답은 있으니까 차근차근 노력해보자!</li>
+                <li>✓ 오류를 두려워하지 말고 해결하려고 노력하자!</li>
+                <li>✓ 하루하루 성실하고 열심히 취업을 향해 달려보자!!</li>
+                <li>✓ 하다 보면 되겠지!</li>
               </ul>
             </div>
-            <div class="msg-box">
-              <div class="msg-item line-r">
-                <h3>Determination</h3>
-                <ul class="mg-20">
-                  <li>✓ 열심히 공부하고 노력하자!</li>
-                  <li>✓ 화이팅!!!</li>
-                  <li>✓ 답은 있으니까 차근차근 노력해보자!</li>
-                  <li>✓ 오류를 두려워하지 말고 해결하려고 노력하자!</li>
-                  <li>✓ 하루하루 성실하고 열심히 취업을 향해 달려보자!!</li>
-                  <li>✓ 하다 보면 되겠지!</li>
-                </ul>
-              </div>
 
-              <div class="msg-item">
-                <h3>Promise</h3>
-                <ul class="mg-20">
-                  <li>01. 회의 참석하기</li>
-                  <li>02. 열심히 하기</li>
-                </ul>
-              </div>
+            <div class="msg-item">
+              <h3>Promise</h3>
+              <ul class="mg-20">
+                <li>01. 회의 참석하기</li>
+                <li>02. 열심히 하기</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -243,102 +243,57 @@
         </div>
       </div>
 
-        <!--페이지네이션-->
-        <div class="prev-btn btnArrow"><ion-icon name="chevron-back-outline"></ion-icon></div>
-        <div class="next-btn btnArrow"><ion-icon name="chevron-forward-outline"></ion-icon></div>
-        <div class="gallery-pagination"></div>
-      </section>
-    </div>
-    <!-- 푸터 -->
-    <div id="footer"></div>
-    <!-- 푸터 -->
+      <!--페이지네이션-->
+      <div class="gallery-pagination"></div>
+    </section>
+  </div>
+  <!-- 푸터 -->
+  <div id="footer"></div>
+  <!-- 푸터 -->
 
-    <div>
-      <img
-        class="scroll-btn"
-        id="scroll-top"
-        src="./img/top.png"
-        alt="Button Image"
-      />
-    </div>
+  <div>
+    <img class="scroll-btn" id="scroll-top" src="./img/top.png" alt="Button Image" />
+  </div>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const galleryWrapper = document.querySelector(".gallery-wrapper"); //갤러리 랩퍼
+      const galleryItem = document.querySelectorAll(".gallery-item"); //갤러리 아이템
+      const paginationContainer = document.querySelector(
+        ".gallery-pagination"
+      ); //페이지네이션 부모
 
-    
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const galleryWrapper = document.querySelector(".gallery-wrapper"); //갤러리 랩퍼
-        const galleryItem = document.querySelectorAll(".gallery-item"); //갤러리 아이템
-        let slider = document.querySelector(".gallery-container")
-          let isDown = false; //클릭 상태 체크
-          let startX; //마우스 드래그 시작점 x좌표 체크
-          let scrollLeft; //마우스 드래그시 x좌표 체크
-        const paginationContainer = document.querySelector( ".gallery-pagination"); //페이지네이션 부모
-        const nextBtn = document.querySelector(".next-btn"); //다음 버튼
-        const prevBtn = document.querySelector(".prev-btn"); //이전 버튼
-        let btn;
+      for (let i = 0; i < galleryItem.length; i++) {
+        const btn = document.createElement("span");
+        btn.className = "gallery-btn";
+        if (i === 0) {
+          btn.classList.add("active");
+        }
 
-        const handleButtonClick = (i) => {
+        btn.addEventListener("click", () => {
           document.querySelectorAll(".gallery-btn").forEach((button) => {
             button.classList.remove("active");
           });
-          document.querySelectorAll(".gallery-btn")[i].classList.add("active");
+          btn.classList.add("active");
+
           galleryWrapper.style.transition = "transform 2s";
           galleryWrapper.style.transform = `translateX(-${i * (100 / 6)}%)`;
-        };
-
-        for (let i = 0; i < galleryItem.length; i++) {
-          const btn = document.createElement("span");
-          btn.className = "gallery-btn";
-          if (i === 0) {
-            btn.classList.add("active");
-        }
-          btn.addEventListener("click", () => handleButtonClick(i));
-            paginationContainer.appendChild(btn);
-          } 
-
-        nextBtn.addEventListener("click", () => {
-          const activeIndex = [...document.querySelectorAll(".gallery-btn")].findIndex((button) =>
-            button.classList.contains("active")
-          );
-          const nextIndex = (activeIndex + 1) % galleryItem.length;
-          handleButtonClick(nextIndex);
-        });
-        prevBtn.addEventListener("click", () => {
-          const activeIndex = [...document.querySelectorAll(".gallery-btn")].findIndex((button) =>
-            button.classList.contains("active")
-          );
-          const prevIndex = (activeIndex - 1 + galleryItem.length) % galleryItem.length;
-          handleButtonClick(prevIndex);
         });
 
-        const galleryImgs = document.querySelectorAll(".gallery-item ul li img");
-          galleryImgs.forEach(img=>{
-            img.addEventListener("mouseover",()=>{
-              img.classList.add("on");
-            });
-            img.addEventListener("mouseout",()=>{
-              img.classList.remove("on");
-            });
-          }); 
+        paginationContainer.appendChild(btn);
+      }
+    });
 
+    /* 위로가기 스크롤 */
+    document
+      .getElementById("scroll-top")
+      .addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       });
-
-      /* 위로가기 스크롤 */
-      document
-        .getElementById("scroll-top")
-        .addEventListener("click", function () {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        });
-
-        
-
-    
-
-
-
+    /* 위로가기 스크롤 */
   </script>
   <script src="headerFooter.js"></script>
 </body>
