@@ -166,6 +166,7 @@
   margin: 0 auto;
   /* background-color: #ddd; */
   border-bottom: 1px solid #000;
+  position: relative;
 }
 .gallery h2 {
   background-color: #fff;
@@ -246,4 +247,22 @@
 }
 .grab {
   cursor: grabbing;
+}
+.btnArrow{
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  /* transform: translateY(-50%); */
+}
+.prev-btn{
+  left: 0%;
+}
+.next-btn{
+  right: 0;
+}
+
+.btnArrow ion-icon{
+  width: 50px;
+  height: 50px;
 }
