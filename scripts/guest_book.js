@@ -324,9 +324,13 @@ function createGuestBook(docs, name) {
                         <span class="show-date">${date}</span>
                     </div>
                     <div class="show-button-container">
-                        <button class="replyBtn" id="${id}">답글</button>
-                        <button class="deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">삭제</button>
-                        <button class="updateBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">수정</button>
+                        <div>
+                            <button class="replyBtn" id="${id}">답글</button>
+                        </div>
+                        <div>
+                            <button class="deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">삭제</button>
+                            <button class="updateBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">수정</button>
+                        </div
                     </div>
                 </div>
             `);
@@ -347,7 +351,7 @@ function createGuestBook(docs, name) {
                         <span class="reply-show-guest-message">${guest_message}</span> 
                         <span class="reply-show-date">${date}</span>
                     </div>
-                    <div class="reply-show-message-container">
+                    <div class="reply-show-btn-container">
                         <button class="deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">삭제</button>
                         <button class="replyUpdateBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">수정</button>
                     </div>
