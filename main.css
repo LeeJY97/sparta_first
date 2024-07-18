@@ -1,3 +1,5 @@
+
+
 .main-container {
   padding: 40px;
 }
@@ -55,23 +57,24 @@
 .msg-item > span {
   font-size: 15px;
   font-family: "SCoreDream-light";
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   display: block;
 }
 .msg-item h1 {
   font-family: "SCoreDream-normal";
   padding: 0;
   text-align: left;
-  font-size: 70px;
+  font-size: 90px;
   line-height: 1.15;
   position: relative;
 }
 .msg-item h1 > p{
   z-index: 1;
   position: relative;
+  letter-spacing: 2px;
 }
 .IntroH3 {
-  padding-top: 30px;
+  padding-top: 80px;
 }
 .msg-item ul {
   list-style-type: none;
@@ -297,6 +300,7 @@
   }
   100% {
     background-color: rgb(199 231 44); 
+    opacity: 0.8;
     width: 100%;
   }
 }

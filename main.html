@@ -17,8 +17,11 @@
     nomodule
     src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
   ></script>
+  <script src="scripts/main.js"></script>
 
   <body>
+
+
     <!--header-->
     <div id="header"></div>
     <!--header-->
@@ -31,11 +34,11 @@
           <div class="msg-gird">
             <div class="msg-item first">
               <span>React_8</span>
-              <h1 style="max-width: 180px;">
+              <h1 style="max-width: 240px;">
                 <div class="highlight-animated1"></div>
                 <p>DO IT</p>
               </h1>
-              <h1 style="max-width: 270px;">
+              <h1 style="max-width: 350px;">
                 <div class="highlight-animated2"></div>
                 <p>CODING</p>
               </h1>
@@ -323,6 +326,8 @@
           ].findIndex((button) => button.classList.contains("active"));
           const nextIndex = (activeIndex + 1) % galleryItem.length;
           handleButtonClick(nextIndex);
+          prevBtn.classList.remove("hightOn");
+          nextBtn.classList.add("hightOn");
         });
 
         prevBtn.addEventListener("click", () => {
@@ -332,6 +337,8 @@
           const prevIndex =
             (activeIndex - 1 + galleryItem.length) % galleryItem.length;
           handleButtonClick(prevIndex);
+          nextBtn.classList.remove("hightOn");
+          prevBtn.classList.add("hightOn");
         });
 
         const galleryImgs = document.querySelectorAll(
