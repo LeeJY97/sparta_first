@@ -66,7 +66,7 @@
   line-height: 1.15;
   position: relative;
 }
-.msg-item h1 > p{
+.msg-item h1 > p {
   z-index: 1;
   position: relative;
 }
@@ -254,25 +254,24 @@
 .grab {
   cursor: grabbing;
 }
-.btnArrow{
+.btnArrow {
   font-size: 30px;
   position: absolute;
   top: 50%;
   cursor: pointer;
   /* transform: translateY(-50%); */
 }
-.prev-btn{
+.prev-btn {
   left: 0%;
 }
-.next-btn{
+.next-btn {
   right: 0;
 }
 
-.btnArrow ion-icon{
+.btnArrow ion-icon {
   width: 50px;
   height: 50px;
 }
-
 
 .highlight-animated1 {
   animation: highlight 1s ease-in-out forwards;
@@ -296,11 +295,11 @@
     width: 0;
   }
   100% {
-    background-color: rgb(199 231 44); 
+    background-color: rgb(199 231 44);
     width: 100%;
   }
 }
 
-.hightOn{
-  color: rgb(199 231 44); 
+.hightOn {
+  color: rgb(199 231 44);
 }
