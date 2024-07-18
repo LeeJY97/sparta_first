@@ -61,58 +61,67 @@ header {
   background-color: #fff;
   border-bottom: 1px solid black;
   margin: 0px auto;
-}
-
-h1 {
   padding: 40px;
-  font-weight: 500;
-  color: black;
-  font-style: normal;
-  font-size: 30px;
-}
-.menu {
-  position: fixed;
-  right: 20px;
-  top: 40px;
-}
 
-#menuIcon {
-  cursor: pointer;
-  position: relative;
-  right: -40px;
-}
-
-#menus_show {
-  width: 80px;
-  overflow: hidden;
-  position: relative;
-  right: 18px;
-  padding: 10px 0px;
-  gap: 10px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  list-style-type: none;
-  background-color: black;
-  opacity: 0;
-  border-radius: 3px;
+  justify-content: space-between;
 }
-.menu:hover #menus_show {
-  opacity: 1;
-  transition-duration: 0.5s;
+
+.menuButton {
+  width: 300px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
-.menu a {
+#category-1,
+#category-2,
+#category-3 {
   position: relative;
-  width: 80px;
-  overflow: hidden;
-  font-size: 15px;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #37474f;
+  box-shadow: 1px 1px 1px #37474f;
+  color: #37474f;
   text-align: center;
+}
+#category-1::before {
+  content: "팀 소개";
+}
+#category-2::before {
+  content: "팀원 소개";
+}
+#category-3::before {
+  content: "갤러리";
+}
+#category-1::before,
+#category-2::before,
+#category-3::before {
+  display: inline-block;
+  position: absolute;
+  background-color: #37474f;
   color: white;
+  width: 100%;
+  height: 100%;
+  line-height: 30px;
+  opacity: 0;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transform: scale3d(0.7, 1, 1);
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
-.menu a:hover {
-  background-color: gray;
+#category-1:hover::before,
+#category-2:hover::before,
+#category-3:hover::before {
+  opacity: 1;
+  z-index: 1;
+  transform: scale3d(1, 1, 1);
 }
+
+/*footer css*/
 footer {
   width: 100%;
   height: 200px;
