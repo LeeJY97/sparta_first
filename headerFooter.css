@@ -50,6 +50,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  height: 1000px;
+}
 a {
   list-style-type: none;
   color: inherit;
@@ -67,6 +70,7 @@ header {
   justify-content: space-between;
   padding: 20px;
   margin-bottom: 20px;
+  margin-top: 15px;
 }
 #header {
   width: 100%;
@@ -162,4 +166,23 @@ footer h3 {
 .members a:hover {
   color: rgb(199 231 44);
   transform: scale(1.1);
+}
+
+/* scroll */
+
+/* 프로그래스바 */
+.progressbar {
+  position: fixed; /* 페이지 상단에 프로그레스바 고정 */
+  height: 15px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 500;
+  background-color: rgb(199 231 44);
+}
+.progressbar > .progress {
+  width: 0%; /* 프로그래스바 진행 정도 */
+  height: 100%;
+  transition: width 0.3s ease; /* 부드러운 가속도 애니메이션 추가 */
+  background-color: rgb(167, 167, 167);
 }
