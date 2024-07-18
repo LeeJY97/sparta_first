@@ -118,8 +118,8 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                        onclick="closeModal()">닫기</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()"
+                        data-bs-dismiss="modal">닫기</button>
                     <button type="button" class="btn btn-primary" id="validPassword">확인</button>
                 </div>
             </div>
@@ -147,11 +147,16 @@
             })
         })
 
+        // 비번 모달 닫기
+        function closeModal() {
+            $('#passwordModal').modal('hide');
+            $("#inputPw").val("");
+            $("#inputPw").text("");
+        }
+
     </script>
     <!-- <script src="script.js"></script> -->
     <script src="./headerFooter.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore-compat.js"></script>
 </body>
 
 </html>

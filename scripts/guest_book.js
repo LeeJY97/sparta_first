@@ -105,7 +105,7 @@ async function saveDoc(obj) {
     }
 
     inputClear();
-    cardClear();
+    guestBookClear();
     loadGuestBook();
 }
 
@@ -196,7 +196,7 @@ $('#validPassword').click(async function () {
 
 // 클리어, 다시 로드
 function clearAll() {
-    cardClear();
+    guestBookClear();
     loadGuestBook();
     closeModal();
 }
@@ -449,7 +449,7 @@ function inputClear() {
 }
 
 // 방명록 비우기 (데이터 추가, 삭제시 새로운 리스트 추가하기 위함)
-function cardClear() {
+function guestBookClear() {
     $("#guestbook-entries").empty();
 }
 
