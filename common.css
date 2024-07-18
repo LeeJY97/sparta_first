@@ -6,13 +6,11 @@
 *::-webkit-scrollbar {
   display: none;
 }
-<<<<<<< HEAD
-ul, li{
-    list-style: none;
+ul,
+li {
+  list-style: none;
 }
-=======
 
->>>>>>> 40bb177eacbcacaa0d32c57bc7efd5e7cd7514bb
 a {
   list-style-type: none;
   text-decoration: none;

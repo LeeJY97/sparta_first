@@ -185,5 +185,5 @@ footer h3 {
   width: 0%; /* 프로그래스바 진행 정도 */
   height: 100%;
   transition: width 0.3s ease; /* 부드러운 가속도 애니메이션 추가 */
-  background-color: rgb(167, 167, 167);
+  background-color: rgb(255, 154, 231);
 }
