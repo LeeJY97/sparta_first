@@ -1,10 +1,11 @@
-.main-container{
+.main-container {
   padding: 40px;
 }
 
 /* 팀 소개 CSS 시작 */
 .team-container {
   text-align: left;
+  margin: 0 auto;
 }
 
 .team-desc {
@@ -24,21 +25,21 @@
   border-bottom: 1px solid #000;
   /* height: 500px; */
 }
-.msg-gird{
+.msg-gird {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
-.msg-box{
+.msg-box {
   display: flex;
 }
-.msg-item.first{
+.msg-item.first {
   border-bottom: 1px solid #000;
 }
 .msg-item {
   padding: 40px;
 }
-.msg-item h3{
+.msg-item h3 {
   font-size: 20px;
 }
 
@@ -49,32 +50,32 @@
 .mg-20 {
   margin-top: 20px;
 }
-.msg-item > span{
+.msg-item > span {
   font-size: 15px;
-  font-family: 'SCoreDream-light';
+  font-family: "SCoreDream-light";
   margin-bottom: 8px;
   display: block;
 }
-.msg-item h1{
-  font-family: 'SCoreDream-normal';
+.msg-item h1 {
+  font-family: "SCoreDream-normal";
   padding: 0;
   text-align: left;
   font-size: 70px;
   line-height: 1.1;
 }
-.IntroH3{
+.IntroH3 {
   padding-top: 30px;
 }
 .msg-item ul {
   list-style-type: none;
   /* text-align: left; */
 }
-.line-r{
-  border-right : 1px solid #000;
+.line-r {
+  border-right: 1px solid #000;
 }
 .msg-item li {
   margin-bottom: 10px;
-  font-family: 'SCoreDream-light';
+  font-family: "SCoreDream-light";
 }
 
 .team-detail img {
@@ -144,21 +145,20 @@
 
 .member div {
   font-size: 25px;
-  font-family: 'SCoreDream-light';
+  font-family: "SCoreDream-light";
 }
-.lineBox{
+.lineBox {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.line-r-card{
+.line-r-card {
   width: 60px;
   height: 1px;
   background-color: #000;
 }
 
 /* 팀 소개 CSS 끝 */
-
 
 /*갤러리*/
 .gallery {

@@ -1,0 +1,304 @@
+/************************ 방명록 css ************************/
+#guestbook {
+  padding: 20px 40px;
+}
+
+/************  방명록 등록 부분 ************/
+/* 전체 <div> */
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 이름, 비밀번호 <div> */
+.input-name-pw-container {
+  display: flex;
+  width: 40%;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* 이름, 비밀번호 <input> */
+.input-name,
+.input-pw {
+  width: 30%;
+  height: 45%;
+  border-radius: 5px;
+  border: 1px solid #706969;
+  padding: 2px 6px;
+  margin-right: 10px;
+}
+
+  .replyBtn{
+    opacity: 0.7;
+    width: 45px;
+    height: 24px;
+    padding: 2px;
+    border: none;
+    color: #fff;
+    background: rgb(30, 92, 92);
+    border-radius: 6px;
+    margin-top: 5px;
+  }
+  
+  
+/* 방명록 코멘트 <div> */
+.input-message-container {
+  width: 100%;
+  height: 100%;
+  margin: 10px 10px 0px 0px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* 방명록 코멘트 <textarea> */
+.input-message {
+  width: 100%;
+  height: 125px;
+  resize: none;
+  color: black;
+  border: none;
+  outline: none;
+}
+
+/* 등록 버튼 <div> */
+.input-button-container {
+  display: flex;
+  width: 20%;
+}
+
+/* 등록 버튼 <button> */
+#addEntry {
+  width: 45px;
+  height: 24px;
+  border: none;
+  color: #fff;
+  background: #706969;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+/************ 방명록 보여지는 부분 ************/
+
+/* 방명록 전체 <div> */
+.show-container {
+  margin-bottom: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 1px solid rgb(211, 211, 211);
+}
+
+/* 방명록 이름, 삭제 버튼 <div> */
+span.show-name {
+  font-weight: bold;
+  width: 90%;
+  margin: 10px 10px 5px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+/* 삭제, 답글 버튼 <div> */
+.show-button-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+ div > span {
+  margin-top: 5px;
+      display: block;
+     word-wrap: break-word;
+    margin-left: 10px;
+}
+
+/* 방명록 날짜 <span> */
+span.show-date {
+  margin-top: 25px;
+  font-size: 12px;
+  color: grey;
+}
+
+.guestbook-entries {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px auto 20px auto;
+}
+
+#guestbook h2 {
+  padding: 10px 0;
+}
+
+.guest-massage {
+  margin: 0px 0px 5px 5px;
+}
+
+/* 삭제 모달 */
+#passwordModal > div > div {
+  margin: 30vh auto 0px auto;
+}
+
+.deleteBtn {
+  opacity: 0.7;
+  width: 45px;
+  height: 24px;
+  padding: 2px;
+  border: none;
+  color: #fff;
+  background: #706969;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.replyBtn {
+  opacity: 0.7;
+  width: 45px;
+  height: 24px;
+  padding: 2px;
+  border: none;
+  color: #fff;
+  background: rgb(30, 92, 92);
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+
+/************  방명록 답글 등록 ************/
+  /* 답글 전체 <div> */
+  .reply-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+  }
+  
+  /* 답글 이름, 비밀번호 <div> */
+  .reply-input-name-pw-container {
+    display: flex;
+    width: 20%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  /* 답글 이름, 비밀번호 <input> */
+  .reply-input-name,
+  .reply-input-pw {
+    width: 100%;
+    height: 45%;
+    border-radius: 3px;
+    border: 1px solid #706969;
+    padding: 2px 6px;
+    /* margin-right: 10px; */
+    margin-left: 10px;
+  }
+  
+  /* 답글 방명록 코멘트 <div> */
+  .reply-input-message-container {
+    width: 90%;
+    height: 100%;
+    margin: 10px 10px 0px 0px;
+    margin-left: 20px;
+  }
+  
+  /* 답글 방명록 코멘트 <textarea> */
+  .reply-input-message {
+    width: 100%;
+    height: 125px;
+    resize: none;
+    color: black;
+    border: none;
+    outline: none;
+  }
+  
+  /* 답글 등록 버튼 <div> */
+  .reply-input-button-container {
+    display: flex;
+    margin-left: 20px;
+  }
+  
+  /* 답글 등록 버튼 <button> */
+  #addReply {
+    width: 45px;
+    height: 24px;
+    border: none;
+    color: #fff;
+    background: #706969;
+    border-radius: 6px;
+    margin-right: 10px;
+  }
+  #removeReply {
+    width: 45px;
+    height: 24px;
+    border: none;
+    color: #fff;
+    background: #db7e7e;
+    border-radius: 6px;
+    margin-right: 10px;
+  }
+
+
+  /************  답글 보여지는 부분 ************/
+  /* 답글 전체 <div> */
+  .reply-show-container {
+    margin: 0px 0px 5px 30px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid rgb(211, 211, 211);
+  }
+  #guestbook-entries > div > div.reply-show-icon-container > p{
+    margin-top: 8px;
+  }
+
+  .reply-show-info-container {
+    margin-left: 10px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  span.reply-show-date{
+    margin-top: 25px;
+    font-size: 12px;
+    color: grey;
+  }
+
+  /* 답글 이름 */
+  span.reply-show-name {
+    font-weight: bold;
+    margin: 10px 0px 5px 0px;
+  }
+  
+
+
+/************ 버튼들 ************/
+  /* 답글 버튼 <div> */
+  .reply-input-button-container {
+    margin-left: 20px;
+  }
+  
+  /* 답글 등록 버튼 <button> */
+  #addReply {
+    width: 45px;
+    height: 24px;
+    border: none;
+    color: #fff;
+    background: #706969;
+    border-radius: 6px;
+    margin-right: 10px;
+  }
+  #removeReply {
+    width: 45px;
+    height: 24px;
+    border: none;
+    color: #fff;
+    background: #db7e7e;
+    border-radius: 6px;
+    margin-right: 10px;
+  }
