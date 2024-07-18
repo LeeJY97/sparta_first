@@ -100,6 +100,7 @@
 }
 
 .member-desc {
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -149,7 +150,15 @@
   width: 100%;
   /* border-radius: 50%; */
 }
-
+.titleCmBack {
+  width: 100%;
+  height: 120px;
+  line-height: 120px;
+  background-color: rgba(202, 202, 202, 0.188);
+}
+.titleCmBack span {
+  margin: 40px;
+}
 .titleCm span {
   background: linear-gradient(180deg, transparent, 50%, rgb(199 231 44) 50%);
 }
@@ -184,7 +193,7 @@
   background-color: rgba(202, 202, 202, 0.188);
 }
 .gallery-container {
-  max-width: 90%;
+  max-width: 100%;
   margin: 0 auto;
   /* background-color: #ddd; */
   width: 100%;
