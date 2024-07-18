@@ -30,7 +30,6 @@
 }
 
 .replyBtn {
-  opacity: 0.7;
   width: 45px;
   height: 24px;
   padding: 2px;
@@ -73,9 +72,18 @@
   height: 24px;
   border: none;
   color: #fff;
-  background: #706969;
+  background: #000;
   border-radius: 6px;
   margin-right: 10px;
+  font-size: 12px;
+  box-shadow: 3px 2px 0px 0px #2c3742;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#addEntry:hover {
+  transform: scale(0.95);
 }
 
 /************ 방명록 보여지는 부분 ************/
@@ -98,13 +106,15 @@
 
 /* 방명록 이름 <div> */
 span.show-name {
+  font-size: 14px;
+  color: gray;
   font-weight: bold;
   width: 90%;
   margin: 10px 10px 5px 10px;
 }
 /* 방명록 날짜 <span> */
 span.show-date {
-  margin: 25px 0px 10px 10px;
+  margin: 20px 0px 10px 10px;
   font-size: 12px;
   color: grey;
 }
@@ -116,10 +126,10 @@ span.show-date {
   justify-content: space-around;
 }
 
-.show-button-container > div{
- display: flex;
- flex-direction: column;
- justify-content: start;
+.show-button-container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 
 .show-guest-message {
@@ -133,7 +143,7 @@ span.show-date {
   margin: 20px auto 20px auto;
 }
 
-.guestbook-entries:last-child{
+.guestbook-entries:last-child {
   border-bottom: 1px solid rgb(211, 211, 211);
 }
 
@@ -151,59 +161,124 @@ span.show-date {
 }
 
 .deleteBtn {
-  opacity: 0.7;
   width: 45px;
   height: 24px;
   padding: 2px;
   border: none;
   color: #fff;
-  background: #706969;
+  background: #ff4747;
   border-radius: 6px;
-}
+  font-size: 12px;
+  box-shadow: 3px 2px 0px 0px #c45f5f;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.deleteBtn:hover {
+  transform: scale(0.95);
+}
 .replyBtn {
-  opacity: 0.7;
   width: 45px;
   height: 24px;
   padding: 2px;
   border: none;
   color: #fff;
-  background: rgb(30, 92, 92);
+  background: #000;
   border-radius: 6px;
+  font-size: 12px;
+  box-shadow: 3px 2px 0px 0px #2c3742;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.replyBtn:hover {
+  transform: scale(0.95);
 }
 
 .updateBtn {
-  opacity: 0.7;
   width: 45px;
   height: 24px;
   padding: 2px;
   border: none;
   color: #fff;
-  background: rgb(210, 223, 140);
+  background: rgb(199 231 44);
   border-radius: 6px;
-  margin-top: 2px;
-
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  box-shadow: 3px 2px 0px 0px rgb(204 215 150);
 }
-.replyUpdateBtn{
-  opacity: 0.7;
+.updateBtn:hover {
+  transform: scale(0.95);
+}
+.replyUpdateBtn {
   width: 45px;
   height: 24px;
   padding: 2px;
   border: none;
   color: #fff;
-  background: rgb(210, 223, 140);
+  background: rgb(199 231 44);
   border-radius: 6px;
   margin-top: 5px;
+  font-size: 12px;
+  box-shadow: 3px 2px 0px 0px rgb(204 215 150);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.replyUpdateBtn:hover {
+  transform: scale(0.95);
+}
+
+.input-submit-container {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #updateEntry {
   width: 45px;
   height: 24px;
+  padding: 2px;
   border: none;
   color: #fff;
-  background: #706969;
+  background: rgb(199 231 44);
   border-radius: 6px;
+  font-size: 12px;
+  box-shadow: 3px 2px 0px 0px rgb(204 215 150);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 10px;
+}
+
+#updateEntry:hover {
+  transform: scale(0.95);
+}
+
+#updateCancle {
+  width: 45px;
+  height: 24px;
+  padding: 2px;
+  border: none;
+  color: #fff;
+  background: #ff4747;
+  border-radius: 6px;
+  font-size: 12px;
+  box-shadow: 3px 2px 0px 0px #c45f5f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#updateCancle:hover {
+  transform: scale(0.95);
 }
 
 /************  방명록 답글 등록 ************/
@@ -267,24 +342,41 @@ span.show-date {
   height: 24px;
   border: none;
   color: #fff;
-  background: #706969;
+  background: #000;
   border-radius: 6px;
   margin: 0px 10px;
+  font-size: 12px;
+  box-shadow: 3px 2px 0px 0px #2c3742;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#addReply:hover {
+  transform: scale(0.95);
 }
 #removeReply {
   width: 45px;
   height: 24px;
   border: none;
   color: #fff;
-  background: #db7e7e;
+  background: #ff4747;
   border-radius: 6px;
   margin-right: 10px;
-}
+  font-size: 12px;
+  box-shadow: 3px 2px 0px 0px #c45f5f;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#removeReply:hover {
+  transform: scale(0.95);
+}
 /************  답글 보여지는 부분 ************/
 /* 답글 전체 <div> */
 .reply-show-container {
-  margin: 0px 0px 15px 30px;
+  margin: 0px 0px 15px 0px;
   border-radius: 5px;
   display: flex;
   flex-direction: row;
@@ -292,7 +384,7 @@ span.show-date {
   border-top: 1px solid rgb(211, 211, 211);
 }
 #guestbook-entries > div > div.reply-show-icon-container > p {
-  margin-top: 8px;
+  margin: 8px 0 0 20px;
 }
 
 .reply-show-info-container {
@@ -303,7 +395,7 @@ span.show-date {
   justify-content: space-around;
 }
 
-.reply-show-btn-container{
+.reply-show-btn-container {
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -319,24 +411,6 @@ span.reply-show-date {
 span.reply-show-name {
   font-weight: bold;
   margin: 10px 0px 5px 0px;
-}
-
-/* 답글 등록 버튼 <button> */
-#addReply {
-  width: 45px;
-  height: 24px;
-  border: none;
-  color: #fff;
-  background: #706969;
-  border-radius: 6px;
-  margin-right: 10px;
-}
-#removeReply {
-  width: 45px;
-  height: 24px;
-  border: none;
-  color: #fff;
-  background: #db7e7e;
-  border-radius: 6px;
-  margin-right: 10px;
+  font-size: 12px;
+  color: gray;
 }
