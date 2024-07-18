@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="scrollbtn.css" />
 <link rel="stylesheet" href="common.css" />
 
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 <body>
   <!--header-->
   <div id="header"></div>
@@ -245,6 +248,8 @@
       </div>
 
       <!--페이지네이션-->
+      <div class="prev-btn btnArrow"><ion-icon name="chevron-back-outline"></ion-icon></div>
+        <div class="next-btn btnArrow"><ion-icon name="chevron-forward-outline"></ion-icon></div>
       <div class="gallery-pagination"></div>
     </section>
   </div>
@@ -259,31 +264,63 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const galleryWrapper = document.querySelector(".gallery-wrapper"); //갤러리 랩퍼
-      const galleryItem = document.querySelectorAll(".gallery-item"); //갤러리 아이템
-      const paginationContainer = document.querySelector(
-        ".gallery-pagination"
-      ); //페이지네이션 부모
+        const galleryItem = document.querySelectorAll(".gallery-item"); //갤러리 아이템
+        let slider = document.querySelector(".gallery-container")
+          let isDown = false; //클릭 상태 체크
+          let startX; //마우스 드래그 시작점 x좌표 체크
+          let scrollLeft; //마우스 드래그시 x좌표 체크
+        const paginationContainer = document.querySelector( ".gallery-pagination"); //페이지네이션 부모
+        const nextBtn = document.querySelector(".next-btn"); //다음 버튼
+        const prevBtn = document.querySelector(".prev-btn"); //이전 버튼
+        let btn;
 
-      for (let i = 0; i < galleryItem.length; i++) {
-        const btn = document.createElement("span");
-        btn.className = "gallery-btn";
-        if (i === 0) {
-          btn.classList.add("active");
-        }
-
-        btn.addEventListener("click", () => {
+        const handleButtonClick = (i) => {
           document.querySelectorAll(".gallery-btn").forEach((button) => {
             button.classList.remove("active");
           });
-          btn.classList.add("active");
-
+          document.querySelectorAll(".gallery-btn")[i].classList.add("active");
           galleryWrapper.style.transition = "transform 2s";
           galleryWrapper.style.transform = `translateX(-${i * (100 / 6)}%)`;
-        });
+        };
 
-        paginationContainer.appendChild(btn);
-      }
+          for (let i = 0; i < galleryItem.length; i++) {
+            const btn = document.createElement("span");
+            btn.className = "gallery-btn";
+            if (i === 0) {
+              btn.classList.add("active");
+          }
+
+          btn.addEventListener("click", () => handleButtonClick(i));
+            paginationContainer.appendChild(btn);
+          } 
+
+         nextBtn.addEventListener("click", () => {
+      const activeIndex = [...document.querySelectorAll(".gallery-btn")].findIndex((button) =>
+        button.classList.contains("active")
+      );
+      const nextIndex = (activeIndex + 1) % galleryItem.length;
+      handleButtonClick(nextIndex);
     });
+
+    prevBtn.addEventListener("click", () => {
+      const activeIndex = [...document.querySelectorAll(".gallery-btn")].findIndex((button) =>
+        button.classList.contains("active")
+      );
+      const prevIndex = (activeIndex - 1 + galleryItem.length) % galleryItem.length;
+      handleButtonClick(prevIndex);
+    });
+
+
+        const galleryImgs = document.querySelectorAll(".gallery-item ul li img");
+          galleryImgs.forEach(img=>{
+            img.addEventListener("mouseover",()=>{
+              img.classList.add("on");
+            });
+            img.addEventListener("mouseout",()=>{
+              img.classList.remove("on");
+            });
+          }); 
+      });
 
     /* 위로가기 스크롤 */
     document
