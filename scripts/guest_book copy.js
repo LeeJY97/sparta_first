@@ -7,6 +7,8 @@ import {
     collection,
     addDoc,
     updateDoc,
+    where,
+    setDoc,
     deleteDoc,
     query,
     orderBy,
@@ -34,8 +36,9 @@ const name = $('#myName').val();
 var fieldId;
 var pw;
 
-// 부모 방명록 id값
-var parentId = null; 
+var parentId;
+// 신규 방명록 판별 (답글 X)
+var isRoot;
 
 // 페이지 로딩 후 db 가져옴
 $(window).load(async () => {
@@ -43,82 +46,123 @@ $(window).load(async () => {
 });
 
 
-// 방명록 저장
+// 방명록 신규 저장
 $("#addEntry").click(async function () {
     let guest_name = $("#guest-name").val();
     let guest_pw = $("#guest-pw").val();
     let guest_message = $("#guest-message").val();
     let date = getDate();
-    let isRoot = parentId == null
+    
+    isRoot = true;
 
     var obj = {
         name: name,
-        guest_name : guest_name,
-        guest_pw : guest_pw,
-        guest_message : guest_message,
-        date : date,
-        isRoot : isRoot,
-        parentId: parentId
+        guest_name: guest_name,
+        guest_pw: guest_pw,
+        guest_message: guest_message,
+        date: date,
+        isRoot: isRoot,
     }
 
-    if(validInputs("guest-name", "guest-message", "guest-pw")){
+    if (validInputs("guest-name", "guest-message", "guest-pw")) {
         saveDoc(obj);
     }
-    
+
 });
 
+async function saveDoc(obj) {
+    const docRef = await addDoc(collection(db, "guest_book"), obj);
 
-async function saveDoc(obj){
-    // if (validInputs()) {
-        await addDoc(collection(db, "guest_book"), obj);
+    if(isRoot){
+        updateRootDoc(docRef, obj);
+    }
 
-        inputClear();
-        cardClear();
-        loadGuestBook();
-        parentId = null;
-    // }
+    inputClear();
+    cardClear();
+    loadGuestBook();
 }
+
+// 신규 방명록일경우 parentId = doc.id 
+async function updateRootDoc(docRef, obj){
+    obj.parentId = docRef.id;
+    await setDoc(docRef, obj)
+}
+
 
 // db 불러오기
 async function loadGuestBook() {
     let docs = await getDocs(
-        query(collection(db, "guest_book"), orderBy("date", "desc"))
+        query(
+            collection(db, "guest_book"), 
+            orderBy("isRoot", "desc"),
+            orderBy("date", "desc")
+        )
     );
 
     createGuestBook(docs, name);
 }
 
-// 방명록 html 생성
+// 방명록 html 생성 (답글 기능 추가)
 function createGuestBook(docs, name) {
     docs.forEach((doc) => {
         let row = doc.data();
 
+
+        // 페이지 주인(?)의 방명록이 아니면 보이지 않음
         if (row.name !== name) {
             return;
         }
 
         let id = doc.id;
+        let isRoot = row.isRoot;
+        let parentId = row.parentId;
+
         let guest_name = row.guest_name;
         let guest_message = row.guest_message;
         let date = formatDate(row.date);
 
-        let card = $(`
-            <hr>
-            <div class="show-container" id="container-${id}">
-                <div class="show-name-container">
-                    <span class="show-name">${guest_name}</span>
-                    <span class="show-guest-massage">${guest_message}</span> 
-                    <span class="show-date">${date}</span>
+        let guest_book;
+        if (isRoot) {
+            guest_book = $(`
+                <div class="show-container" id="container-${id}">
+                    <div class="show-name-container">
+                        <span class="show-name">${guest_name}</span>
+                        <span class="show-guest-massage">${guest_message}</span> 
+                        <span class="show-date">${date}</span>
+                    </div>
+                    <div class="show-button-container">
+                        <button class="deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">삭제</button>
+                        <button class="replyBtn" id="${id}">답글</button>
+                    </div>
                 </div>
-                <div class="show-button-container">
-                    <button class="deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">삭제</button>
-                    <button class="replyBtn" id="${id}">답글</button>
+            `);
+
+            $("#guestbook-entries").append(guest_book);
+
+        } else {
+            const parentDiv = document.getElementById('container-' + parentId);
+
+            guest_book = $(`
+                <div class="reply-show-container">
+                    <div class="reply-show-icon-container">
+                            <p>⤷</p>
+                    </div>
+                    <div class="reply-show-info-container" id="reply-container-${id}">
+                        <span class="reply-show-name">${guest_name}</span>
+                        <span class="reply-show-guest-massage">${guest_message}</span> 
+                        <span class="reply-show-date">${date}</span>
+                    </div>
+                    <div class="reply-show-message-container">
+                        <button class="deleteBtn" data-bs-toggle="modal" id=${id} data-bs-target="#passwordModal">삭제</button>
+                    </div>
                 </div>
-            </div>
             `)
-        $("#guestbook-entries").append(card);
+            
+            parentDiv.insertAdjacentElement('afterend', guest_book[0]);
+        }
+
     });
-    $("#guestbook-entries").append($(`<hr>`))
+    // $("#guestbook-entries").append($(`<hr>`))
 }
 
 
@@ -132,11 +176,26 @@ $('#validPassword').click(async function () {
     let docs = await getDocs(collection(db, "guest_book"), doc);
 
     if (checkPassword(inputPw, docs, fieldId)) {
-        await deleteDoc(doc(db, "guest_book", fieldId));
+
+        // '방명록' 이면 하위 답글까지 삭제
+        if(delRow.isRoot){
+            const q = query(collection(db, "guest_book"), where("parentId", "==", delRow.parentId));
+            const querySnapshot = await getDocs(q);
+            
+            querySnapshot.forEach((doc) => {
+                deleteDoc(doc.ref);
+                console.log(`문서 ${doc.id} 삭제 완료`);
+            });
+        }else{ 
+            // '답글'이면 답글만 삭제
+            await deleteDoc(doc(db, "guest_book", fieldId));
+        }
+
         cardClear();
         loadGuestBook();
         closeModal();
-        window.alert('지워짐')
+        // window.alert('지워짐');
+
     } else {
         closeModal();
         window.alert('틀림')
@@ -144,30 +203,29 @@ $('#validPassword').click(async function () {
 })
 
 
+// 답글 저장
 $(document).on("click", "#addReply", async function () {
-    console.log(parentId);
-
     let guest_name = $("#reply-guest-name").val();
     let guest_pw = $("#reply-guest-pw").val();
     let guest_message = $("#reply-guest-message").val();
     let date = getDate();
-    let isRoot = parentId == null
-
+    
+    isRoot = false;
 
     var obj = {
         name: name,
-        guest_name : guest_name,
-        guest_pw : guest_pw,
-        guest_message : guest_message,
-        date : date,
-        isRoot : isRoot,
+        guest_name: guest_name,
+        guest_pw: guest_pw,
+        guest_message: guest_message,
+        date: date,
+        isRoot: isRoot,
         parentId: parentId
     }
 
-    if(validInputs("reply-guest-name", "reply-guest-message", "reply-guest-pw")){
+    if (validInputs("reply-guest-name", "reply-guest-message", "reply-guest-pw")) {
         saveDoc(obj);
     }
-    
+
 })
 
 
@@ -177,11 +235,10 @@ $(document).on("click", ".replyBtn", async function () {
     removeReplyInput()
     parentId = $(this).attr("id");
 
-    const parentDiv = document.getElementById('container-'+parentId);
+    const parentDiv = document.getElementById('container-' + parentId);
 
     let replyInput = $(`
         <div class="reply-input-container">
-            <hr>
             <div class="reply-input-name-pw-container">
                 <p class="reply-icon">⤷</p>
                 <input type="text" class="reply-input-name" id="reply-guest-name" placeholder="이름" />
@@ -190,11 +247,10 @@ $(document).on("click", ".replyBtn", async function () {
             <div class="reply-input-message-container">
                 <textarea type="text" class="reply-input-message" id="reply-guest-message" placeholder="내용을 입력하세요"></textarea>
             </div>
-            <div class="reply-input-submit-container">
+            <div class="reply-input-button-container">
                 <button id="addReply">등록</button>
                 <button id="removeReply">취소</button>
             </div>
-            <hr>
         </div>
     `)
 
@@ -214,7 +270,7 @@ $(document).on("click", "#removeReply", async function () {
 })
 
 // 답글 영역 지우기
-function removeReplyInput(){
+function removeReplyInput() {
     $('.reply-input-container').remove();
     parentId = null;
 }
@@ -245,18 +301,16 @@ function formatDate(date) {
     return `${year}.${month}.${day}`;
 }
 
+var delRow;
 // 비빌번호 유효성 검사 
 function checkPassword(inputPw, docs, fieldId) {
-    let row;
-
     docs.forEach((doc) => {
-
         if (doc.id === fieldId) {
-            row = doc.data();
+            delRow = doc.data();
         }
     })
 
-    if (row.guest_pw == inputPw) {
+    if (delRow.guest_pw == inputPw) {
         return true;
     }
     return false;
