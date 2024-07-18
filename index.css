@@ -66,6 +66,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 12px;
+  word-break: keep-all;
 }
 .box::-webkit-scrollbar {
   display: none;
@@ -402,4 +404,9 @@ a {
 }
 .hoverEffect {
   opacity: 1;
+}
+
+ion-icon{
+  width: 30px;
+  height: 30px;
 }
