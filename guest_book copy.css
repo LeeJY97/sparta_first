@@ -112,7 +112,7 @@ span.show-name {
  div > span {
     margin-top: 5px;
     display: block;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 /* 방명록 날짜 <span> */
@@ -272,6 +272,7 @@ span.show-date {
   span.reply-show-name {
     font-weight: bold;
     margin: 10px 0px 5px 0px;
+    margin-left: 10px;
   }
   
 

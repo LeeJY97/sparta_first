@@ -17,7 +17,6 @@
 }
 
 .team-detail {
-  background-color: lightgray;
   display: flex;
   /* justify-content: center; */
   /* margin-top: 5px; */
@@ -25,6 +24,7 @@
   border-bottom: 1px solid #000;
   /* height: 500px; */
 }
+
 .msg-gird {
   display: flex;
   flex-direction: column;
@@ -166,6 +166,7 @@
   margin: 0 auto;
   /* background-color: #ddd; */
   border-bottom: 1px solid #000;
+  position: relative;
 }
 .gallery h2 {
   background-color: #fff;
@@ -209,11 +210,20 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  overflow: hidden;
 }
 .gallery-item ul li img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: all 5s ease;
+  transition: width 5s ease, height 5s ease;
+}
+.gallery-item ul li img.on {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
 .gallery-pagination {
   display: flex;
@@ -234,4 +244,25 @@
 .gallery-btn.active {
   background-color: #000;
   transform: scale(1.3);
+}
+.grab {
+  cursor: grabbing;
+}
+.btnArrow{
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  /* transform: translateY(-50%); */
+}
+.prev-btn{
+  left: 0%;
+}
+.next-btn{
+  right: 0;
+}
+
+.btnArrow ion-icon{
+  width: 50px;
+  height: 50px;
 }
