@@ -56,14 +56,15 @@
   <div class="section">
     <div class="beforeButton">
       <a href="subPage_mj.html">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+        <svg id="before" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
           style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
           <path d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z"></path>
         </svg>
       </a>
+      <p class="beforeShowP">정민지</p>
     </div>
     <div class="afterButton">
-      <p class="showP">want to know other member</p>
+      <p class="showP">임보라</p>
       <a href="subPage_br.html">
         <svg id="after" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
           style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
@@ -89,7 +90,7 @@
       <div class="input-message-container">
         <textarea type="text" class="input-message" id="guest-message" placeholder="내용을 입력하세요"></textarea>
       </div>
-     
+
     </div>
     <div class="guestbook-entries" id="guestbook-entries">
       <!-- Guestbook entries will be added here -->
@@ -131,7 +132,15 @@
         })
       })
     })
-
+    $(document).ready(function () {
+      $("#before").hover(function () {
+        $(".beforeShowP").addClass("hoverEffect");
+      }, function () {
+        $(function () {
+          $(".beforeShowP").removeClass("hoverEffect");
+        })
+      })
+    })
   </script>
   <!-- <script src="script.js"></script> -->
   <script src="headerFooter.js"></script>
