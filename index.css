@@ -391,10 +391,12 @@ a {
 }
 
 .section {
-  width: 80%;
+  width: 100%;
   margin: 50px auto;
   display: flex;
   justify-content: space-between;
+  padding: 30px;
+  border-bottom: 1px solid black;
 }
 
 .afterButton {
