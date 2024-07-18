@@ -147,6 +147,17 @@
   </div>
 
   <div id="footer"></div>
+  <script>
+    $(document).ready(function () {
+      $("#after").hover(function () {
+        $(".showP").addClass("hoverEffect");
+      }, function () {
+        $(function () {
+          $(".showP").removeClass("hoverEffect");
+        })
+      })
+    })
+  </script>
   <script src="script.js"></script>
   <script src="headerFooter.js"></script>
 </body>
