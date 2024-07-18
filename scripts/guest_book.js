@@ -30,23 +30,21 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// 상세페이지 팀원 이름
 const name = $('#myName').val();
 
-// 방명록 삭제시 id값
-var fieldId;
 var pw;
 
-var parentId;
-// 신규 방명록 판별 (답글 X)
-var isRoot;
-
-// 페이지 로딩 후 db 가져옴
-$(window).load(async () => {
-    loadGuestBook();
-});
+var fieldId;    // 방명록 삭제시 id값
+var parentId;   // 답글달때 필요한 부모 방명록 ID
+var isRoot;     // 신규 방명록 판별 (답글 X)
 
 
-// 방명록 신규 저장
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * 방명록, 답글 저장  * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+// 방명록 저장 클릭 이벤트
 $("#addEntry").click(async function () {
     let guest_name = $("#guest-name").val();
     let guest_pw = $("#guest-pw").val();
@@ -70,6 +68,32 @@ $("#addEntry").click(async function () {
 
 });
 
+// 답글 저장 클릭 이벤트
+$(document).on("click", "#addReply", async function () {
+    let guest_name = $("#reply-guest-name").val();
+    let guest_pw = $("#reply-guest-pw").val();
+    let guest_message = $("#reply-guest-message").val();
+    let date = getDate();
+    
+    isRoot = false;
+
+    var obj = {
+        name: name,
+        guest_name: guest_name,
+        guest_pw: guest_pw,
+        guest_message: guest_message,
+        date: date,
+        isRoot: isRoot,
+        parentId: parentId
+    }
+
+    if (validInputs("reply-guest-name", "reply-guest-message", "reply-guest-pw")) {
+        saveDoc(obj);
+    }
+
+})
+
+// 방명록, 답글 저장
 async function saveDoc(obj) {
     const docRef = await addDoc(collection(db, "guest_book"), obj);
 
@@ -82,14 +106,25 @@ async function saveDoc(obj) {
     loadGuestBook();
 }
 
-// 신규 방명록일경우 parentId = doc.id 
+// 방명록일경우 본인의 id를 parentId로 업데이트 (parentId = doc.id)
 async function updateRootDoc(docRef, obj){
     obj.parentId = docRef.id;
     await setDoc(docRef, obj)
 }
 
 
-// db 불러오기
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * 방명록, 답글 읽기  * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+// 페이지 로드되면 db 가져옴
+$(window).load(async () => {
+    loadGuestBook();
+});
+
+
+// 방명록 db 데이터 가져오기
 async function loadGuestBook() {
     let docs = await getDocs(
         query(
@@ -102,11 +137,65 @@ async function loadGuestBook() {
     createGuestBook(docs, name);
 }
 
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * 방명록, 답글 삭제  * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+var delRow;
+
+// 삭제버튼 클릭 이벤트 (클릭된 방명록의 db id값 가져옴)
+$(document).on("click", ".deleteBtn", async function () {
+    fieldId = $(this).attr("id");
+});
+
+// 모달 삭제버튼 클릭 이벤트
+$('#validPassword').click(async function () {
+    const inputPw = $('#inputPw').val();
+    let docs = await getDocs(collection(db, "guest_book"), doc);
+
+    if (checkPassword(inputPw, docs, fieldId)) {
+
+        if(delRow.isRoot){
+            multiDeleteDocs();
+        }else{ 
+            singleDeleteDoc();
+        }
+
+        cardClear();
+        loadGuestBook();
+        closeModal();
+    } else {
+        closeModal();
+        window.alert('비밀번호가 틀렸습니다.');
+    }
+})
+
+// 방명록 삭제 -> 하위 답글 전부 삭제
+async function multiDeleteDocs(){
+    const q = query(collection(db, "guest_book"), where("parentId", "==", delRow.parentId));
+    const querySnapshot = await getDocs(q);
+    
+    querySnapshot.forEach((doc) => {
+        deleteDoc(doc.ref);
+    });
+}
+
+// 답글 삭제 -> 답글 1개만 삭제
+async function singleDeleteDoc(){
+    await deleteDoc(doc(db, "guest_book", fieldId));
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * html 생성   * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 // 방명록 html 생성 (답글 기능 추가)
 function createGuestBook(docs, name) {
     docs.forEach((doc) => {
         let row = doc.data();
-
 
         // 페이지 주인(?)의 방명록이 아니면 보이지 않음
         if (row.name !== name) {
@@ -166,76 +255,6 @@ function createGuestBook(docs, name) {
 }
 
 
-/************ 방명록 삭제 ******************/
-$(document).on("click", ".deleteBtn", async function () {
-    fieldId = $(this).attr("id");
-});
-
-$('#validPassword').click(async function () {
-    const inputPw = $('#inputPw').val();
-    let docs = await getDocs(collection(db, "guest_book"), doc);
-
-    if (checkPassword(inputPw, docs, fieldId)) {
-
-        // '방명록' 이면 하위 답글까지 삭제
-        if(delRow.isRoot){
-            const q = query(collection(db, "guest_book"), where("parentId", "==", delRow.parentId));
-            const querySnapshot = await getDocs(q);
-            
-            querySnapshot.forEach((doc) => {
-                deleteDoc(doc.ref);
-                console.log(`문서 ${doc.id} 삭제 완료`);
-            });
-        }else{ 
-            // '답글'이면 답글만 삭제
-            await deleteDoc(doc(db, "guest_book", fieldId));
-        }
-
-        cardClear();
-        loadGuestBook();
-        closeModal();
-        // window.alert('지워짐');
-
-    } else {
-        closeModal();
-        window.alert('틀림')
-    }
-})
-
-
-// 답글 저장
-$(document).on("click", "#addReply", async function () {
-    let guest_name = $("#reply-guest-name").val();
-    let guest_pw = $("#reply-guest-pw").val();
-    let guest_message = $("#reply-guest-message").val();
-    let date = getDate();
-    
-    isRoot = false;
-
-    var obj = {
-        name: name,
-        guest_name: guest_name,
-        guest_pw: guest_pw,
-        guest_message: guest_message,
-        date: date,
-        isRoot: isRoot,
-        parentId: parentId
-    }
-
-    if (validInputs("reply-guest-name", "reply-guest-message", "reply-guest-pw")) {
-        saveDoc(obj);
-    }
-
-})
-
-
-
-
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-/* * * * * * * * * * * * html 생성   * * * * * * * * * * * */
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // 답글 버튼 누르면 새 영역 생김
 $(document).on("click", ".replyBtn", async function () {
@@ -267,10 +286,11 @@ $(document).on("click", ".replyBtn", async function () {
 
 
 
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * 유효성 검사  * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-var delRow;
+
 // 비빌번호 유효성 검사 
 function checkPassword(inputPw, docs, fieldId) {
     docs.forEach((doc) => {
