@@ -25,3 +25,11 @@ const headerFooterComponent = () => {
   }
 };
 headerFooterComponent();
+
+/*header nav바 페이지스크롤 이동 */
+$(document).ready(function ($) {
+  $(".scroll_move").click(function (event) {
+    event.preventDefault();
+    $("html,body").animate({ scrollTop: $(this.hash).offset().top }, 500);
+  });
+});
