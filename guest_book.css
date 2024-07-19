@@ -2,7 +2,11 @@
 #guestbook {
   padding: 20px 40px;
 }
-
+#guestbook h2 {
+  width: 100px;
+  background: linear-gradient(180deg, transparent, 60%, rgb(199 231 44) 40%);
+  font-size: 33px;
+}
 /************  방명록 등록 부분 ************/
 /* 전체 <div> */
 .input-container {

@@ -6,6 +6,10 @@
 *::-webkit-scrollbar {
   display: none;
 }
+ul,
+li {
+  list-style: none;
+}
 
 a {
   list-style-type: none;
