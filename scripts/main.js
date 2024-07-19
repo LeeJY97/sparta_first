@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtn = document.querySelector(".next-btn"); //다음 버튼
     const prevBtn = document.querySelector(".prev-btn"); //이전 버튼
 
+    // 슬라이드 이름 배열
+    const slideNameBox = document.querySelector(".slideName");
+    const slideNames = ["For. JUNG SO HYUN", "For. LIM BO RA", "For. CHOI JI MIN", "For. LEE JOON YEOL", "For. JUNG MIN JI", "For. LEE JUN"];
+
     // 페이지네이션 엑션
     const handleButtonClick = (i) => {
       document.querySelectorAll(".gallery-btn").forEach((button) => {
@@ -17,6 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".gallery-btn")[i].classList.add("active");
       galleryWrapper.style.transition = "transform 2s";
       galleryWrapper.style.transform = `translateX(-${i * (100 / 6)}%)`;
+
+      //이름 처음 디폴트 지정
+      slideNameBox.textContent = slideNames[i];
     };
 
     // 페이지네이션 버튼 생성 후 엑션
@@ -29,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       btn.addEventListener("click", () => handleButtonClick(i));
       paginationContainer.appendChild(btn);
+      slideNameBox.textContent = slideNames[0];
     }
 
     // 다음 엑션

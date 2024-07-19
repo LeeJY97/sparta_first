@@ -198,8 +198,18 @@
   position: relative;
   padding: 40px;
 }
+.gallery .galleryTitle{
+  display: flex;
+  justify-content: flex-start;
+  align-items: end;
+  gap: 15px;
+}
 .gallery {
   background-color: rgba(202, 202, 202, 0.188);
+}
+.gallery p.slideName{
+  display: inline-block;
+  font-size: 20px;
 }
 .gallery-container {
   max-width: 100%;
