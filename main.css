@@ -209,6 +209,7 @@
   height: 1200px;
   display: block;
   padding: 40px 60px;
+  user-select: none;
 }
 .gallery-wrapper {
   width: 600%;
@@ -216,6 +217,7 @@
   display: flex;
   /* justify-content: center; */
   align-items: center;
+  user-select: none;
 }
 .overHidden {
   overflow: hidden;
