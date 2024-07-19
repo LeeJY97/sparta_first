@@ -135,9 +135,13 @@ async function loadGuestBook() {
             orderBy("isRoot", "desc"),
             orderBy("date", "desc")
         )
-    );
+    ).then((docs) => {
+        createGuestBook(docs, name);
+    });
 
-    createGuestBook(docs, name);
+    // createGuestBook(docs, name);
+
+    
 }
 
 
@@ -151,6 +155,8 @@ var delRow;
 $(document).on("click", ".deleteBtn", async function () {
     fieldId = $(this).attr("id");
     mode = "delete"
+    
+    console.log(fieldId);
 });
 
 
