@@ -135,11 +135,12 @@ async function loadGuestBook() {
             orderBy("isRoot", "desc"),
             orderBy("date", "desc")
         )
-    ).then((docs) => {
-        createGuestBook(docs, name);
-    });
+    )
+    // .then((docs) => {
+    //     createGuestBook(docs, name);
+    // });
 
-    // createGuestBook(docs, name);
+    createGuestBook(docs, name);
 
     
 }
