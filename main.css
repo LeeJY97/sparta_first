@@ -99,6 +99,7 @@
   object-fit: cover;
   height: 80%;
   margin: auto auto;
+  width: 50%;
 }
 
 .msg-item span {
@@ -341,4 +342,22 @@
 
 .hightOn {
   color: rgb(199 231 44);
+}
+
+
+@media (max-width: 1874px) {
+.team-detail img{
+  width: 50%;
+  height: 70%;
+}
+}
+@media (min-width: 1000px) and (max-width: 1800px) {
+  .msg-item li {
+      font-size: 14px;
+  }
+}
+@media (max-width: 1000px) {
+  .msg-item li {
+      font-size: 12px;
+  }
 }
