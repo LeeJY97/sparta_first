@@ -172,7 +172,8 @@ footer h3 {
 
 /* 프로그래스바 */
 .progressbar {
-  position: fixed; /* 페이지 상단에 프로그레스바 고정 */
+  position: fixed;
+  /* 페이지 상단에 프로그레스바 고정 */
   height: 15px;
   top: 0;
   left: 0;
@@ -184,5 +185,5 @@ footer h3 {
   width: 0%; /* 프로그래스바 진행 정도 */
   height: 100%;
   transition: width 0.3s ease; /* 부드러운 가속도 애니메이션 추가 */
-  background-color: rgb(167, 167, 167);
+  background-color: rgb(255, 154, 231);
 }
